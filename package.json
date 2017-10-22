@@ -1,0 +1,22 @@
+{
+  "name": "vue-loopback",
+  "version": "1.0.0",
+  "description": "A Vue project template with Loopback framework featuring ES6, Gulp, and Mocha for unit tests",
+  "main": "meta.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InCuca/vue-loopback.git"
+  },
+  "keywords": [
+    "vuejs"
+  ],
+  "author": "Walker Leite",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InCuca/vue-loopback/issues"
+  },
+  "homepage": "https://github.com/InCuca/vue-loopback#readme"
+}
