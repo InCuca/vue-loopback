@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/InCuca/vue-loopback/issues"
   },
-  "homepage": "https://github.com/InCuca/vue-loopback#readme"
+  "homepage": "https://github.com/InCuca/vue-loopback#readme",
+  "devDependencies": {
+    "vue-cli": "^2.9.1"
+  }
 }
