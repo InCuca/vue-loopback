@@ -5,6 +5,7 @@ import path from 'path';
 import browserify from 'browserify';
 import vueify from 'vueify';
 import babelify from 'babelify';
+import modulesify from 'css-modulesify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import {dirs} from './config.js';
@@ -25,6 +26,14 @@ gulp.task('build:client', ['copy:client'], () => {
     entries: path.resolve(dirs.srcClient, 'main.js'),
     debug: true,
     transform: [babelify, vueify],
+  });
+
+  b.plugin(modulesify, {
+    output: path.resolve(
+      dirs.buildClient,
+      'bundle.css',
+    ),
+    global: true
   });
 
   return b.bundle()
