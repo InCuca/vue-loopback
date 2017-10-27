@@ -33,7 +33,16 @@ gulp.task('build:client', ['copy:client'], () => {
       dirs.buildClient,
       'bundle.css',
     ),
-    global: true
+    global: true,
+    generateScopedName: function(name, filename) {
+      var matches = filename.match(/^\/node_modules/);
+      if (matches) return name;
+      if (process.env.NODE_ENV === 'production') {
+        return modulesify.generateShortName(name, filename);
+      } else {
+        return modulesify.generateLongName(name, filename);
+      }
+    }
   });
 
   return b.bundle()
