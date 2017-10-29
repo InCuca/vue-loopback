@@ -6,7 +6,7 @@ describe('App.vue', () => {
 
   it('should render correct content', () => {
     const vm = new Constructor().$mount();
-    return Vue.nextTick(() => {
+    return Vue.nextTick().then(() => {
       expect(vm.$el.innerHTML).to.equal('Hello World!');
     });
   });
