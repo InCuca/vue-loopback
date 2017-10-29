@@ -31,7 +31,7 @@ gulp.task('build:client', ['copy:client'], () => {
   b.plugin(modulesify, {
     output: path.resolve(
       dirs.buildClient,
-      'bundle.css',
+      'bundle.css'
     ),
     global: true,
     generateScopedName: function(name, filename) {
@@ -42,7 +42,7 @@ gulp.task('build:client', ['copy:client'], () => {
       } else {
         return modulesify.generateLongName(name, filename);
       }
-    }
+    },
   });
 
   return b.bundle()
