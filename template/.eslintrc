@@ -6,9 +6,6 @@
     "sourceType": "module"
   },
   "globals": {
-    "expect": true,
-    "assert": true,
-    "require": true,
-    "request": true
+    "require": true
   }
 }
