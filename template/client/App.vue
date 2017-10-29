@@ -4,12 +4,9 @@
 
 <script>
 export default {
-  props: {
-    hello: {
-      type: String,
-      default: 'Hello World!',
-    }
-  }
+  data: () => ({
+    hello: 'Hello World!',
+  }),
 }
 </script>
 
