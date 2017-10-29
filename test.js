@@ -5,7 +5,8 @@ const commands = [
   {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], yes: true},
   {cmd: 'npm', args: ['install'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'lint'], cwd: 'test-project'},
-  {cmd: 'npm', args: ['run', 'test'], cwd: 'test-project'},
+  {cmd: 'npm', args: ['run', 'test:server'], cwd: 'test-project'},
+  {cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'build'], cwd: 'test-project'},
 ];
 
