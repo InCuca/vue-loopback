@@ -27,7 +27,8 @@ A Vue project template with Loopback framework featuring ES6, Gulp, and Mocha fo
 ## Testing
 
 ```
-  $ npm test
+  $ npm test:server
+  $ npm test:client
 ```
 
 ## Running the development server (API and Client)
