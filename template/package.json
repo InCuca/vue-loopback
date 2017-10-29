@@ -10,8 +10,7 @@
     "start": "node .",
     "dev": "gulp serve",
     "build": "gulp build",
-    "test": "gulp test",
-    "posttest": "npm run lint && nsp check"
+    "test": "gulp test"
   },
   "dependencies": {
     "compression": "^1.0.3",
