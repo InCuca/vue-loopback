@@ -10,17 +10,6 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import {dirs} from './config.js';
 
-gulp.task('build:test', () => {
-  return gulp.src([
-    path.resolve(dirs.test, '**/*.test.js'),
-    path.resolve(dirs.test, 'config.js'),
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(dirs.buildTest));
-});
-
 gulp.task('build:client', ['copy:client'], () => {
   let b = browserify({
     entries: path.resolve(dirs.srcClient, 'main.js'),
@@ -70,7 +59,6 @@ gulp.task('build:server', () => {
 });
 
 gulp.task('build', [
-  'build:test',
   'build:client',
   'build:common',
   'build:server',

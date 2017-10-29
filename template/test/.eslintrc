@@ -5,6 +5,7 @@
   "globals": {
     "expect": true,
     "assert": true,
-    "request": true
+    "request": true,
+    "sinon": true
   }
 }
