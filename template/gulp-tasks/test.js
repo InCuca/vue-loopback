@@ -14,7 +14,10 @@ gulp.task('test:server', () => {
 
 gulp.task('test:client', (done) => {
   new Server({
-    files: [path.resolve(dirs.testClient, '**/*.test.js')],
+    files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      path.resolve(dirs.testClient, '**/*.test.js'),
+    ],
     configFile: path.resolve(dirs.test, 'karma.conf.js'),
     singleRun: true,
   }, done).start();
