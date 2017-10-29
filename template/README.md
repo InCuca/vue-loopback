@@ -27,7 +27,7 @@
   $ npm test
 ```
 
-## Running Development Server (API and Client)
+## Running the development server (API and Client)
 
 ```
   $ npm run dev
@@ -37,4 +37,20 @@
 
 ```
   $ npm run build
+```
+
+## Executing built files
+
+For client you can use any http server, like [http-server](https://github.com/indexzero/http-server):
+
+```bash
+  $ cd build/client
+  $ http-server
+```
+
+You can run the server with:
+
+```bash
+  $ cd build/server
+  $ node .
 ```
