@@ -7,7 +7,6 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
     "dev": "gulp serve",
     "build": "gulp build",
     "test": "gulp test"
