@@ -3,8 +3,8 @@ import vueify from 'vueify';
 
 export default (config) => {
   config.set({
-    browsers: ['PhantomJS'],
-    frameworks: ['browserify', 'mocha', 'chai', 'phantomjs-shim'],
+    browsers: ['Chrome'],
+    frameworks: ['browserify', 'mocha', 'chai'],
     preprocessors: {
       '**/*.js': ['browserify'],
     },
