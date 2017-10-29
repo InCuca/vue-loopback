@@ -22,7 +22,7 @@ function executeCommand(command, index) {
     cp.stdin.on('error', () => {});
     cp.stdout.on('error',() => {});
 
-    // cp.stdout.pipe(process.stdout);
+    cp.stdout.pipe(process.stdout);
     cp.stderr.pipe(process.stderr);
 
     let rejected = false;
