@@ -12,10 +12,10 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 3. `server`: Loopback server files
 4. `test`: Unit and E2E test files
 
-## Installation
+## Usage
 
 ```
-  $ npm install
+  $ vue-cli init InCuca/vue-loopback
 ```
 
 ## Linting
