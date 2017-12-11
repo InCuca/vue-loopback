@@ -1,14 +1,20 @@
 <template lang="html">
-  <h1>\{{ hello }}</h1>
+  {{#extended}}
+    <router-view id="app"></router-view>
+  {{else}}
+    <h1>\{{ hello }}</h1>
+  {{/extended}}
 </template>
 
 <script>
 export default {
+  {{#unless extended}}
   data: () => ({
     hello: 'Hello World!',
   }),
+  {{/unless}}
 }
 </script>
 
-<style lang="css">
+<style {{#extended}}lang="scss"{{else}}lang="css"{{/extended}}>
 </style>

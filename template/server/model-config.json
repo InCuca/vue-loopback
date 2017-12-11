@@ -9,16 +9,27 @@
     "mixins": [
       "loopback/common/mixins",
       "loopback/server/mixins",
+      {{#extended}}
+      "../node_modules/loopback-ds-timestamp-mixin",
+      {{/extended}}
       "../common/mixins",
       "./mixins"
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db"{{#extended}},
+    "public": false{{/extended}}
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": false{{#extended}},
+    "relations": {
+      "account": {
+        "type": "belongsTo",
+        "model": "Account",
+        "foreignKey": "userId"
+      }
+    }{{/extended}}
   },
   "ACL": {
     "dataSource": "db",
@@ -29,13 +40,37 @@
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
-    }
+    }{{#extended}},
+    "relations": {
+      "account": {
+        "type": "belongsTo",
+        "model": "Account",
+        "foreignKey": "userId"
+      },
+      "role": {
+        "type": "belongsTo",
+        "model": "Role",
+        "foreignKey": "roleId"
+      }
+    }{{/extended}}
   },
   "Role": {
     "dataSource": "db",
-    "public": false
+    "public": false{{#extended}},
+    "relations": {
+      "account": {
+        "type": "hasMany",
+        "model": "Account",
+        "through": "RoleMapping",
+        "foreignKey": "roleId"
+      }
+    }
   },
-  "Message": {
-    "dataSource": null
+  "Account": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "email"{{/extended}}
   }
 }

@@ -2,6 +2,7 @@ import path from 'path';
 
 export const dirs = {};
 dirs.root = path.resolve(__dirname, '../');
+dirs.modules = path.resolve(dirs.root, 'node_modules');
 dirs.build = path.resolve(dirs.root, 'build');
 dirs.buildTest = path.resolve(dirs.root, dirs.build, 'test');
 dirs.buildClient = path.resolve(dirs.root, dirs.build, 'client');

@@ -2,5 +2,25 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  {{#extended}}
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [{
+      "type": "smtp",
+      "host": "mywebhost.com",
+      "secure": true,
+      "port": 465,
+      "auth": {
+        "user": "noreply@mydomain.com",
+        "pass": "h4ckme"
+      }
+    }]
   }
+  {{/extended}}
 }

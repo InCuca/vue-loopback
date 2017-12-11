@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
   "prompts": {
-
     "name": {
       "type": "string",
       "required": true,
@@ -19,26 +18,25 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
-    "build": {
-      "type": "list",
-      "message": "Vue build",
-      "choices": [
-        {
-          "name": "Runtime + Compiler: recommended for most users",
-          "value": "standalone",
-          "short": "standalone"
-        },
-        {
-          "name": "Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere",
-          "value": "runtime",
-          "short": "runtime"
-        }
-      ]
-    },
-    "router": {
+    "extended": {
       "type": "confirm",
-      "message": "Install vue-router?"
-    },
+      "message": "Add basic Login and Admin views with Vuex, Vue-router and Bootstrap-vue?"
+    }
+  },
+  "filters": {
+    "client/router.js": "extended",
+    "client/static/main.css": "extended === false",
+    "client/static/images/**/*": "extended",
+    "client/components/**/*": "extended",
+    "client/services/**/*": "extended",
+    "client/store/**/*": "extended",
+    "client/style/**/*": "extended",
+    "client/view/**/*": "extended",
+    "server/boot/add-initial-data.js": "extended",
+    "server/boot/create-admin.js": "extended",
+    "server/initial-data/**/*": "extended",
+    "server/models/**/*": "extended",
+    "test/server/account.test.js": "extended",
   },
   "complete": function(data, {logger}) {
     logger.log("To get started:");

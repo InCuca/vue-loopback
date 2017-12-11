@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import connect from 'gulp-connect';
+import historyApiFallback from 'connect-history-api-fallback';
 import {dirs} from './config.js';
 import server from '../server/server.js';
 
@@ -13,6 +14,7 @@ gulp.task('reload:server', ['build:server'], () => {
 gulp.task('watch:server', () => {
   gulp.watch([
     dirs.srcServer + '/**/*.js',
+    dirs.srcServer + '/**/*.json',
     dirs.srcCommon + '/**/*.js',
   ], ['reload:server']);
 });
@@ -24,9 +26,8 @@ gulp.task('reload:client', ['build:client'], () => {
 
 gulp.task('watch:client', () => {
   gulp.watch([
-    dirs.srcClient + '/**/*.js',
+    dirs.srcClient + '/**/*',
     dirs.srcCommon + '/**/*.js',
-    dirs.srcClient + '/**/*.vue',
   ], ['reload:client']);
 });
 
@@ -39,6 +40,9 @@ gulp.task('serve:client', ['build:client', 'watch:client'], () => {
     name: 'Client App',
     root: dirs.buildClient,
     livereload: true,
+    middleware: (connect, opt) => {
+      return [historyApiFallback()];
+    },
   });
 });
 

@@ -1,0 +1,54 @@
+// CAUTION: This file will be duplicated in every componentscss style scope
+//; HINT: Use this for global variables and mixins
+//
+//
+// Color system
+//;
+// $primary:       #5478c0;
+// $secondary:     #7c8386;
+// $success:       #44b6ae;
+// $info:          #444b4e;
+// $warning:       #ffc85f;
+// $danger:        #fc5e66;
+// $light:         #e9edef;
+// $light2:        #a2a6a8;
+// $dark:          #1e2123;
+// $blue:          #5478c0;
+// $purple:        #944fc0;
+
+// Fonts
+// $font-size-base: .875rem;
+// $font-weight-bold: 700;
+// $font-family-sans-serif: "OpenSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// $font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Links
+// $link-color: $secondary;
+
+// Components
+// $border-radius: 0px;
+// $border-radius-lg: 0px;
+// $border-radius-sm: 0px;
+
+// Buttons
+// $btn-border-radius: 1.250em;
+// $btn-border-radius-lg: 1.250em;
+// $btn-border-radius-sm: 1.250em;
+// $btn-font-weight: $font-weight-bold;
+
+// Forms
+// $input-color: $secondary;
+// $input-border-color: $light;
+
+// Breadcrumbs
+// $breadcrumb-bg: transparent;
+// $breadcrumb-divider-color: $light2;
+// $breadcrumb-active-color: $light2;
+
+// Body
+// $body-color: $secondary;
+
+// Import Global Bootstrap Variables
+// (the previous variables will not be overitten)
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
