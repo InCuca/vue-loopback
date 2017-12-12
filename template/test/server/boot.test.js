@@ -7,10 +7,8 @@ import root from '../../server/boot/root.js';
 import auth from '../../server/boot/authentication.js';
 import createAdmin from '../../server/boot/create-admin.js';
 
-import initialAccount from '../../server/initial-data/manutencao-account';
-import initialProf from '../../server/initial-data/example1-professor';
-import initialAula from '../../server/initial-data/example1-aula';
-import initialAluno from '../../server/initial-data/example1-aluno';
+import initialAccount from '../../server/initial-data/maintenance-account';
+
 {{/extended}}
 describe('boot process', () => {
   {{#extended}}
@@ -62,6 +60,44 @@ describe('boot process', () => {
         html: '<b>Testing email text</b>',
       }, done);
     }).slow(5000).timeout(30000);
+  });
+
+  describe('create-admin.js', () => {
+    it('should have Account model', () => {
+      expect(server.models).has.property('Account');
+    });
+
+    it('should create a default admin user', () => {
+      return server.models.Account.find().then(res => {
+        expect(res).to.have.lengthOf(1);
+        expect(res[0]).to.have.property('createdAt');
+        expect(res[0]).to.have.property('updatedAt');
+        expect(res[0].id).to.equal(1);
+        expect(res[0].email).to.equal(initialAccount.email);
+        expect(res[0].password).to.be.an('string');
+      });
+    });
+
+    it('should create a default admin role', () => {
+      return server.models.Role.find().then(res => {
+        expect(res).to.have.lengthOf(1);
+        expect(res[0]).to.have.property('created');
+        expect(res[0]).to.have.property('modified');
+        expect(res[0].id).to.equal(1);
+        expect(res[0].name).to.equal('admin');
+      });
+    });
+
+    it('should create RoleMapping entry for admin', () => {
+      const RoleMapping = server.models.RoleMapping;
+      return RoleMapping.find().then(res => {
+        expect(res).to.have.lengthOf(1);
+        expect(res[0].id).to.equal(1);
+        expect(res[0].roleId).to.equal(1);
+        expect(res[0].principalId).to.equal(1);
+        expect(res[0].principalType).to.equal(RoleMapping.USER);
+      });
+    });
   });
   {{/extended}}
 });

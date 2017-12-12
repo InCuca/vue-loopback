@@ -16,7 +16,7 @@ export function signIn({commit, dispatch, state}, {email, password}) {
    })
    .then(token => {
      commit('setAccessToken', token);
-     router.push({name: 'agenda'});
+     router.push({name: 'dashboard'});
      return dispatch('loadAccount', state.access_token.userId);
    });
 }
