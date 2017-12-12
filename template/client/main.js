@@ -32,7 +32,7 @@ import './static/main.css';
 {{/unless}}
 
 // Instance Application
-new Vue({
+export default new Vue({
   el: '#app',
   render: (r) => r(App),
   {{#extended}}
