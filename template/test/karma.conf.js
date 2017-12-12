@@ -6,7 +6,6 @@ import { dirs } from '../gulp-tasks/config';
 import { customSass } from '../gulp-tasks/compilers.js';
 
 const cssBundleFile = tmp.fileSync();
-const cssStream = fs.createWriteStream(cssBundleFile.name);
 
 export default (config) => {
   vueify.compiler.applyConfig({

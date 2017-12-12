@@ -36,8 +36,6 @@ module.exports = {
     "server/boot/create-admin.js": "extended",
     "server/initial-data/**/*": "extended",
     "server/models/**/*": "extended",
-    "test/client/app.spec.js": "extended === false",
-    "test/client/main.spec.js": "extended",
     "test/client/components/**/*": "extended",
     "test/server/account.test.js": "extended",
   },
