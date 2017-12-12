@@ -1,9 +1,11 @@
 <template>
-  <slot>Hello World! This content is restricted</slot>
+  <div>
+    Hello World! This content is restricted.
+  </div>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
