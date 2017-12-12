@@ -14,3 +14,9 @@
 
 $fa-font-path: "../static/fonts";
 @import "font-awesome/scss/font-awesome";
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background-color: darken($light, 40%);
+}

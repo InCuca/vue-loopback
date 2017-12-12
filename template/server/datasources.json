@@ -11,16 +11,18 @@
   "email": {
     "name": "email",
     "connector": "mail",
-    "transports": [{
-      "type": "smtp",
-      "host": "mywebhost.com",
-      "secure": true,
-      "port": 465,
-      "auth": {
-        "user": "noreply@mydomain.com",
-        "pass": "h4ckme"
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.mailtrap.io",
+        "secure": false,
+        "port": 2525,
+        "auth": {
+          "user": "bc6242e46c4abb",
+          "pass": "6dcc9b55c677be"
+        }
       }
-    }]
+    ]
   }
   {{/extended}}
 }

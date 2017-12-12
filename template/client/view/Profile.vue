@@ -7,29 +7,29 @@
       <div class="card-block p-4">
         <form @submit="onSubmit">
           <div v-if="access_token ===  null" class="form-group">
-            <label for="senha">Senha antiga</label>
+            <label for="senha">Old password</label>
             <input type="password"
                    class="form-control"
                    id="senha"
-                   placeholder="Digite sua senha antiga"
+                   placeholder="Insert the old password"
                    v-model="password"
                    required>
           </div>
           <div class="form-group">
-            <label for="senha-nova1">Nova senha</label>
+            <label for="senha-nova1">New password</label>
             <input type="password"
                    class="form-control"
                    id="senha-nova1"
-                   placeholder="Digite sua nova senha"
+                   placeholder="Insert the new password"
                    v-model="passwordNew1"
                    required>
           </div>
           <div class="form-group">
-            <label for="senha-nova2">Confirmação</label>
+            <label for="senha-nova2">Confirmation</label>
             <input type="password"
                    class="form-control"
                    id="senha-nova2"
-                   placeholder="Confirme sua nova senha"
+                   placeholder="Confirm the new password"
                    v-model="passwordNew2"
                    required>
           </div>
@@ -41,13 +41,13 @@
                     class="btn btn-danger"
                     @click="onCancel">
                     <i class="fa fa-ban"></i>
-                    CANCELAR
+                    CANCEL
             </button>
             <button type="submit"
                     class="btn btn-success">
                     <i v-if="loading" class="fa fa-spinner"></i>
                     <i v-else class="fa fa-check"></i>
-                    SALVAR
+                    SAVE
             </button>
           </div>
         </form>
@@ -87,7 +87,7 @@ export default {
 
       if(this.passwordNew1 !== this.passwordNew2) {
         this.loading = false
-        this.error = new Error('As senhas não conferem, por favor tente novamente')
+        this.error = new Error('The password does not match, please try again')
         return;
       }
 

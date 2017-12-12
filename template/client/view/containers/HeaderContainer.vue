@@ -9,7 +9,7 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="ml-auto">
-          <b-nav-item :to="{name: 'profile'}">ALTERAR SENHA</b-nav-item>
+          <b-nav-item :to="{name: 'profile'}">CHANGE PASSWORD</b-nav-item>
           <b-nav-item @click="onLogoutClick">LOG OUT</b-nav-item>
         </b-navbar-nav>
       </b-collapse>

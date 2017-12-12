@@ -17,4 +17,5 @@ export default {
 </script>
 
 <style {{#extended}}lang="scss"{{else}}lang="css"{{/extended}}>
+  {{#extended}}@import "style/app.scss";{{/extended}}
 </style>

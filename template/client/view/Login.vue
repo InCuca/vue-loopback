@@ -13,16 +13,16 @@
                    class="form-control"
                    id="email"
                    aria-describedby="emailHelp"
-                   placeholder="Digite seu e-mail"
+                   placeholder="Insert your email"
                    v-model="email"
                    required>
           </div>
           <div class="form-group">
-            <label for="senha">Senha</label>
+            <label for="senha">Password</label>
             <input type="password"
                    class="form-control"
                    id="senha"
-                   placeholder="Digite sua senha"
+                   placeholder="Insert your password"
                    v-model="password"
                    required>
           </div>
@@ -33,13 +33,13 @@
             <a class="link"
               @click.prevent="$refs.forgotPassword.show()"
               href="#">
-              Esqueceu sua senha?
+              Forgot your password?
             </a>
             <button type="submit"
                     class="btn btn-success">
               <i v-if="loading" class="fa fa-spinner"></i>
               <i v-else class="fa fa-check"></i>
-              ENTRAR
+              SIGN IN
             </button>
           </div>
         </form>
@@ -47,7 +47,7 @@
         <!-- Forgot Password -->
         <b-modal
             ref="forgotPassword"
-            title="Recuperar a senha"
+            title="Recover the password"
             size="sm"
             @ok="onModalOk"
             @shown="onModalShown">
@@ -63,7 +63,7 @@
               type="email"
               class="form-control"
               ref="recoverEmail"
-              placeholder="Digite o seu e-mail"
+              placeholder="Insert your email"
               v-model="recoverEmail"
               @keydown.enter="sendRecoverEmail"
               required/>
@@ -73,7 +73,7 @@
         <b-modal
           ref="recoverSuccess"
           ok-only>
-          Um email foi enviado para você, por favor verifique a caixa de entrada
+          An email has been sent, please verify your mailbox
         </b-modal>
       </div>
     </div>
@@ -141,7 +141,7 @@ export default {
             this.recoverError = err;
           });
       } else {
-        this.recoverError = {message: 'Verifique o e-mail digitado e tente novamente'};
+        this.recoverError = {message: 'Please, check the inserted email and try again'};
       }
     }
   }

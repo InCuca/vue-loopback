@@ -53,7 +53,7 @@ describe('boot process', () => {
 
     it('Email model should send email', (done) => {
       server.models.Email.send({
-        from: 'noreply@mydomain.com',
+        from: 'noreply@fakeserver.mailtrap.io',
         to: '92y0zm+7xhtk2ni75mas@grr.la',
         subject: 'Testing email',
         text: 'Testing email text',
