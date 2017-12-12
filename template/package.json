@@ -63,6 +63,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "mocha": "^3.4.2",
     "sinon": "^2.3.8",
+    "tmp": "0.0.33",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vueify": "^9.4.1",
