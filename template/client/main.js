@@ -27,7 +27,7 @@ import store from './store';
 sync(store, router);
 {{/extended}}
 
-{{unless extended}}
+{{#unless extended}}
 import './static/main.css';
 {{/unless}}
 

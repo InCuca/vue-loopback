@@ -9,7 +9,7 @@ export default function(Account) {
      'please ignore this email. <br /><br />Webmaster';
     Account.app.models.Email.send({
       to: info.email,
-      from: '{{#name}} <noreply@mydomain.com>',
+      from: '{{name}} <noreply@mydomain.com>',
       subject: '[{{name}}] Create a new password',
       html: html,
     }, function(err) {

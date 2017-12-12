@@ -41,7 +41,7 @@ describe('boot process', () => {
       });
     });
   });
-  {{extended}}
+  {{#extended}}
   describe('authentication.js', () => {
     it('should enable authentication by authentication.js', () => {
       expect(server.isAuthEnabled).to.equal(true);
