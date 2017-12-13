@@ -1,6 +1,6 @@
 import loopback from 'loopback';
-{{#extended}}
 import boot from 'loopback-boot';
+{{#extended}}
 import path from 'path';
 
 import root from '../../server/boot/root.js';
@@ -11,15 +11,17 @@ import initialAccount from '../../server/initial-data/maintenance-account';
 
 {{/extended}}
 describe('boot process', () => {
+  let server;
   {{#extended}}
   const options = {
     appRootDir: path.resolve(__dirname, '../../server'),
   };
-  let server;
-
-  beforeEach(done => {
+  {{/extended}}
+  beforeEach({{#extended}}done{{/extended}} => {
     server = loopback();
+    {{#extended}}
     boot(server, options, done);
+    {{/extended}}
   });
 
   afterEach(done => {
