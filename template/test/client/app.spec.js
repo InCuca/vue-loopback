@@ -1,36 +1,32 @@
 import Vue from 'vue';
 import App from '@/App.vue';
-{{#extended}}
-
-// Replicates main.js behavior
-import 'babel-polyfill';
-import { sync } from 'vuex-router-sync';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import BootstrapVue from 'bootstrap-vue';
-import Icon from 'vue-awesome';
-import router from '@/router.js';
-import store from '@/store';
-
-Vue.use(BootstrapVue);
-Vue.component('icon', Icon);
-sync(store, router);
-{{/extended}}
 
 describe('App.vue', () => {
-  const Constructor = Vue.extend(App);
+  let Constructor, vm;
+  {{#exnteded}}
+  const routerView = {
+    render: r => r('div', 'mocked component'),
+  };
+  {{/extended}}
+
+  beforeEach(done => {
+    Constructor = Vue.extend(App);
+    vm = new Constructor({
+      mounted: () => done(),
+      {{#extended}}
+      components: { routerView },
+      {{/extended}}
+    });
+    vm.$mount();
+  });
+
+  afterEach(() => vm.$destroy());
 
   {{#extended}}
-  it.skip('should render login view', () => {
-    // FIXME: Rendering test not working
-    const vm = new Constructor({
-      router,
-      store,
-    }).$mount();
-
-    return vm.$nextTick().then(() => {
-      expect(vm.$el.querySelector('.login-view')).to.not.equal(undefined);
-    })
-  })
+  it('should render router component', () => {
+    expect(vm.$el.innerHTML).to.equal('mocked component');
+    expect(vm.$el.getAttribute('id')).to.equal('app');
+  });
   {{else}}
   it('should render correct content', () => {
     const vm = new Constructor().$mount();
