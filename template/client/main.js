@@ -26,7 +26,6 @@ import store from './store';
 // Add router state to store
 sync(store, router);
 {{/extended}}
-
 {{#unless extended}}
 import './static/main.css';
 {{/unless}}

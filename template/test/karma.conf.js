@@ -2,8 +2,8 @@ import babelify from 'babelify';
 import vueify from 'vueify';
 import modulesify from 'css-modulesify';
 import tmp from 'tmp';
-import { dirs } from '../gulp-tasks/config';
-import { customSass } from '../gulp-tasks/compilers.js';
+import {dirs} from '../gulp-tasks/config';
+import {customSass} from '../gulp-tasks/compilers.js';
 
 const cssBundleFile = tmp.fileSync();
 
@@ -34,7 +34,7 @@ export default (config) => {
       transform: [babelify, vueify],
       plugin: [[modulesify, {
         global: true,
-        generateScopedName: function (name, filename) {
+        generateScopedName: function(name, filename) {
           var matches = filename.match(/^\/node_modules/);
           if (matches) return name;
           if (process.env.NODE_ENV === 'production') {

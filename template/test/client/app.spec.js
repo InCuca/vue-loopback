@@ -14,7 +14,7 @@ describe('App.vue', () => {
     vm = new Constructor({
       mounted: () => done(),
       {{#extended}}
-      components: { routerView },
+      components: {routerView},
       {{/extended}}
     });
     vm.$mount();

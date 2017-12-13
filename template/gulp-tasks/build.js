@@ -33,7 +33,7 @@ gulp.task('build:client', ['copy:client'], () => {
       scss: customSass,
     },
   });
-  
+
   let b = browserify({
     entries: path.resolve(dirs.srcClient, 'main.js'),
     debug: true,
