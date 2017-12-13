@@ -35,7 +35,7 @@
           </div>
           <div class="alert alert-danger"
                role="alert"
-               v-if="error">{{error.message}}</div>
+               v-if="error">\{{error.message}}</div>
           <div class="flex">
             <button
                     class="btn btn-danger"
@@ -55,7 +55,7 @@
           ref="resetSuccess"
           ok-only
           @ok="onModalOk">
-          A senha foi atualizada com sucesso!
+          The password has been updated!
         </b-modal>
       </div>
     </div>

@@ -28,7 +28,7 @@
           </div>
           <div class="alert alert-danger"
                role="alert"
-               v-if="error">{{error.message}}</div>
+               v-if="error">\{{error.message}}</div>
           <div class="flex">
             <a class="link"
               @click.prevent="$refs.forgotPassword.show()"
@@ -57,7 +57,7 @@
               v-if="recoverError"
               :show="recoverError !== null"
               variant="danger">
-              {{ recoverError.message }}
+              \{{ recoverError.message }}
             </b-alert>
             <input
               type="email"
