@@ -1,34 +1,28 @@
 import loopback from 'loopback';
 import boot from 'loopback-boot';
-{{#extended}}
 import path from 'path';
-
+{{#extended}}
 import root from '../../server/boot/root.js';
 import auth from '../../server/boot/authentication.js';
 import createAdmin from '../../server/boot/create-admin.js';
-
 import initialAccount from '../../server/initial-data/maintenance-account';
-
 {{/extended}}
+
 describe('boot process', () => {
   let server;
-  {{#extended}}
   const options = {
     appRootDir: path.resolve(__dirname, '../../server'),
   };
-  {{/extended}}
-  beforeEach({{#extended}}done{{/extended}} => {
+  beforeEach(done => {
     server = loopback();
-    {{#extended}}
     boot(server, options, done);
-    {{/extended}}
   });
 
   afterEach(done => {
     // Clear memory database
     server.dataSources.db.automigrate(done);
   });
-  {{/extended}}
+
   describe('root.js', () => {
     it('should return server status by root.js', (done) => {
       let conn = server.listen(8000, () => {
