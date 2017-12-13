@@ -3,7 +3,7 @@ import App from '@/App.vue';
 
 describe('App.vue', () => {
   let Constructor, vm;
-  {{#exnteded}}
+  {{#extended}}
   const routerView = {
     render: r => r('div', 'mocked component'),
   };
