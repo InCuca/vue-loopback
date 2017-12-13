@@ -37,7 +37,7 @@ module.exports = {
     "server/initial-data/**/*": "extended",
     "server/models/**/*": "extended",
     "test/client/components/**/*": "extended",
-    "test/server/account.test.js": "extended",
+    "test/server/account.spec.js": "extended",
   },
   "complete": function(data, {logger}) {
     logger.log("To get started:");
