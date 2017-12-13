@@ -1,0 +1,22 @@
+@import "global";
+@import "bootstrap/scss/bootstrap";
+
+// Customize Bootstrap Components Style
+// (copy from node_modules/bootstrap/scss folder
+// @import "_breadcrumb";
+// @import "_buttons";
+// @import "_dropdown";
+// @import "_forms";
+// @import "_fullcalendar";
+// @import "_modal";
+@import "_spinner";
+// @import "_tables";
+
+$fa-font-path: "../static/fonts";
+@import "font-awesome/scss/font-awesome";
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background-color: darken($light, 40%);
+}

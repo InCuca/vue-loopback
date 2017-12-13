@@ -1,22 +1,38 @@
 const {spawn} = require('child_process');
 
+const initQuestions = [
+  {search: /^\?.+/, response: "\n"},
+];
+
+const initNoExtQuestions = [
+  { search: /^\? Add basic Login and Admin.+/, response: "No\n" },
+  { search: /^\?.+/, response: "\n" },
+];
+
 const commands = [
   {cmd: 'rm', args: ['-r', 'test-project'], ignoreErrors: true},
-  {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], yes: true},
+  {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], responses: initQuestions},
   {cmd: 'npm', args: ['install'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'lint'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'test:server'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'build'], cwd: 'test-project'},
+  {cmd: 'rm', args: ['-r', 'test-project'], ignoreErrors: true},
+  { cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], responses: initNoExtQuestions},
+  { cmd: 'npm', args: ['install'], cwd: 'test-project' },
+  { cmd: 'npm', args: ['run', 'lint'], cwd: 'test-project' },
+  { cmd: 'npm', args: ['run', 'test:server'], cwd: 'test-project' },
+  { cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project' },
+  { cmd: 'npm', args: ['run', 'build'], cwd: 'test-project' },
 ];
 
 function executeCommand(command, index) {
   return new Promise((resolve, reject) => {
     let cp = spawn(command.cmd, command.args, {cwd: command.cwd});
     process.on('exit', cp.kill);
-
     cp.stdout.setEncoding('utf-8');
     cp.stdin.setEncoding('utf-8');
+    cp.stderr.setEncoding('utf-8');
 
     // Ignore pipe errors
     cp.stdin.on('error', () => {});
@@ -26,18 +42,25 @@ function executeCommand(command, index) {
     cp.stderr.pipe(process.stderr);
 
     let rejected = false;
-    if(command.yes) {
-      cp.stdout.on('data', function() {
-        if (!rejected) cp.stdin.write("\n");
-      });
-    }
+    if (!rejected && command.responses) {
+      const registerResponse = q => {
+        cp.stdout.on('data', output => {
+          if (q.search.test(output)) {
+            // console.log('sending', q);
+            cp.stdin.write(q.response);
+          }
+        });
+      }
+
+      command.responses.forEach(registerResponse);
+    } 
     cp.once('error', code => {
       if (!rejected) {
         reject(code);
         rejected = true;
       }
     });
-
+    
     cp.once('exit', code => {
       if (code) {
         reject(code);

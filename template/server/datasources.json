@@ -2,5 +2,26 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  }{{#extended}},
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.mailtrap.io",
+        "secure": false,
+        "port": 2525,
+        "auth": {
+          "user": "bc6242e46c4abb",
+          "pass": "6dcc9b55c677be"
+        }
+      }
+    ]
   }
+  {{/extended}}
 }

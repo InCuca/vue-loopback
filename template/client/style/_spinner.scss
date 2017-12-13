@@ -1,0 +1,22 @@
+// Loading Spinner
+.fa.fa-spinner {
+    -webkit-animation-name: rotate;
+    animation-name: rotate;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @-webkit-keyframes rotate {
+      from {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+      to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+  }
+  
+  @keyframes rotate {
+      from {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+      to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+  }
+  

@@ -1,0 +1,47 @@
+{
+    "name": "Account",
+    "plural": "Accounts",
+    "base": "User",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "mixins": {
+      "TimeStamp": {
+        "required" : false,
+        "validateUpsert": true,
+        "silenceWarnings": false
+      }
+    },
+    "properties": {},
+    "validations": [],
+    "relations": {
+      "roleMapping": {
+        "type": "hasMany",
+        "model": "RoleMapping",
+        "foreignKey": "principalId"
+      },
+      "role": {
+        "type": "hasMany",
+        "model": "Role",
+        "through": "RoleMapping",
+        "foreignKey": "principalId"
+      }
+    },
+    "acls": [{
+       "accessType": "*",
+       "principalType": "ROLE",
+       "principalId": "admin",
+       "permission": "ALLOW"
+     },
+     {
+       "accessType": "EXECUTE",
+       "principalType": "ROLE",
+       "principalId": "$owner",
+       "permission": "ALLOW",
+       "property": "update"
+     }
+   ],
+    "methods": {}
+  }
+  
