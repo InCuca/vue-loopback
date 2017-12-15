@@ -41,7 +41,7 @@ gulp.task('build:client', ['copy:client'], () => {
 
   b.transform(vueify);
 
-  b.transform(babelify);
+  b.transform(babelify, {plugins: ['transform-runtime']});
 
   b.plugin(modulesify, {
     output: path.resolve(
