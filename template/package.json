@@ -28,7 +28,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "^1.2.0",
-    "font-awesome": "github:FortAwesome/Font-Awesome",
+    "font-awesome": "^4.7.0",
     "install": "^0.10.1",
     "lodash.defaultsdeep": "^4.6.0",
     "loopback-ds-timestamp-mixin": "^3.4.1",
