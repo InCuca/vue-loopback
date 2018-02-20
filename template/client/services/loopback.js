@@ -1,4 +1,4 @@
-import { host, restApiRoot, port } from '~/server/config.json';
+import {host, restApiRoot, port} from '~/server/config.json';
 import axios from 'axios';
 
 const Storage = window.localStorage;

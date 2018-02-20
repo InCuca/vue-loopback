@@ -12,12 +12,12 @@ gulp.task('copy:client', ['copy:client:fa'], function() {
   .pipe(gulp.dest(path.resolve(dirs.buildClient)));
 });
 
-gulp.task('copy:package', function () {
+gulp.task('copy:package', function() {
   return gulp.src(dirs.root + '/package.json')
     .pipe(gulp.dest(path.resolve(dirs.build)));
 });
 
-gulp.task('copy:server', function () {
+gulp.task('copy:server', function() {
   return gulp.src(dirs.srcServer + '/**/*.json')
     .pipe(gulp.dest(path.resolve(dirs.buildServer)));
 });

@@ -4,7 +4,7 @@ import router from '@/router.js';
 /**
  * Sync loopback token with current state
 */
-export function syncToken({ commit, dispatch }) {
+export function syncToken({commit, dispatch}) {
   if (loopback.token) {
     commit('setAccessToken', loopback.token);
     dispatch('loadAccount', loopback.token.userId);
@@ -14,7 +14,7 @@ export function syncToken({ commit, dispatch }) {
 /**
  * Sync router for auth
  */
-export function syncRouter({ state, dispatch }, router) {
+export function syncRouter({state, dispatch}, router) {
   dispatch('syncToken');
 
   router.beforeEach((to, from, next) => {
