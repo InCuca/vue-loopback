@@ -34,23 +34,7 @@ const router = new VueRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page (except when it's profile route and
-    // there is an access_token).
-    if (to.name === 'profile' && to.query.access_token) {
-      next();
-    } else if (!store.state.auth.access_token) {
-      next({
-        name: 'login',
-      });
-    } else {
-      next();
-    }
-  } else {
-    next(); // make sure to always call next()!
-  }
-});
+// Sync routes with auth module
+store.dispatch('auth/syncRouter', router);
 
 export default router;
