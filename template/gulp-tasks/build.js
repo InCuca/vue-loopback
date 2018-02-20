@@ -89,4 +89,5 @@ gulp.task('build', [
   'build:client',
   'build:common',
   'build:server',
+  'copy:package',
 ]);
