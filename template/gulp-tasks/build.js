@@ -76,7 +76,7 @@ gulp.task('build:common', () => {
   .pipe(gulp.dest(dirs.buildCommon));
 });
 
-gulp.task('build:server', () => {
+gulp.task('build:server', ['copy:server'], () => {
   return gulp.src(path.resolve(dirs.srcServer, '**/*.js'))
   .pipe(sourcemaps.init())
   .pipe(babel())
