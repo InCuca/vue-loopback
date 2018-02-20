@@ -21,7 +21,8 @@ gulp.task('watch:server', () => {
 
 gulp.task('reload:client', ['build:client'], () => {
   gutil.log('Reloading client');
-  connect.reload();
+  gulp.src(dirs.buildClient)
+    .pipe(connect.reload());
 });
 
 gulp.task('watch:client', () => {
