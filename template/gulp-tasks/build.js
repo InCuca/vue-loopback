@@ -64,7 +64,7 @@ gulp.task('build:client', ['copy:client'], () => {
   .pipe(source('bundle.js'))
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(dirs.buildClient));
 });
 
@@ -72,7 +72,7 @@ gulp.task('build:common', () => {
   return gulp.src(path.resolve(dirs.srcCommon, '**/*.js'))
   .pipe(sourcemaps.init())
   .pipe(babel())
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(dirs.buildCommon));
 });
 
@@ -80,7 +80,7 @@ gulp.task('build:server', ['copy:server'], () => {
   return gulp.src(path.resolve(dirs.srcServer, '**/*.js'))
   .pipe(sourcemaps.init())
   .pipe(babel())
-  .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(dirs.buildServer));
 });
 
