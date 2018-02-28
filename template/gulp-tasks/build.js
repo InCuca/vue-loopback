@@ -74,19 +74,27 @@ gulp.task('build:common', () => {
     .pipe(gulp.dest(dirs.buildCommon));
 });
 
-gulp.task('build:server', ['copy:server'], () => gulp.src([
-  path.resolve(dirs.srcServer, '**/*.js'),
-  path.resolve(dirs.root, 'index.js'),
-])
+gulp.task('build:server', ['copy:server'], () => {
+  return gulp.src(path.resolve(dirs.srcServer, '**/*.js'))
   .pipe(sourcemaps.init())
   .pipe(babel())
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildServer)));
+  .pipe(gulp.dest(dirs.buildServer));
+});
+
+gulp.task('build:index', () => {
+  return gulp.src(path.resolve(dirs.root, 'index.js'))
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(dirs.build));
+});
 
 gulp.task('build', [
   'build:test',
   'build:client',
   'build:common',
   'build:server',
+  'build:index',
   'copy:package',
 ]);
