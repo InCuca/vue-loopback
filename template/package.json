@@ -1,7 +1,7 @@
 {
   "name": "{{ name }}",
   "version": "1.0.0",
-  "main": "server/server.js",
+  "main": "index.js",
   "engines": {
     "node": ">=8.9.4"
   },
@@ -12,7 +12,7 @@
     "test": "gulp test",
     "test:server": "gulp test:server",
     "test:client": "gulp test:client",
-    "start": "node build/server/server.js & http-server build/client",
+    "start": "(type ./build/index.js && node ./build/index.js) || node ./index.js ",
     "vulnerabilities": "nsp check"
   },
   "dependencies": {
