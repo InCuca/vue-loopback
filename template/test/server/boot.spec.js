@@ -1,11 +1,9 @@
+/* eslint-disable arrow-body-style */
 import loopback from 'loopback';
 import boot from 'loopback-boot';
 import path from 'path';
 {{#extended}}
-import root from '../../server/boot/root.js';
-import auth from '../../server/boot/authentication.js';
-import createAdmin from '../../server/boot/create-admin.js';
-import initialAccount from '../../server/initial-data/maintenance-account';
+import initialAccount from '../../server/initial-data/maintenance-account.json';
 {{/extended}}
 
 describe('boot process', () => {
@@ -13,19 +11,19 @@ describe('boot process', () => {
   const options = {
     appRootDir: path.resolve(__dirname, '../../server'),
   };
-  beforeEach(done => {
+  beforeEach((done) => {
     server = loopback();
     boot(server, options, done);
   });
 
-  afterEach(done => {
+  afterEach((done) => {
     // Clear memory database
     server.dataSources.db.automigrate(done);
   });
 
   describe('root.js', () => {
     it('should return server status by root.js', (done) => {
-      let conn = server.listen(8000, () => {
+      const conn = server.listen(8000, () => {
         request(server).get('/api').then((res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.have.property('started');

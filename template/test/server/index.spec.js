@@ -1,4 +1,4 @@
-import server from '../../index.js';
+import server from '../../index';
 
 describe('Project Index', () => {
   beforeEach((done) => {
@@ -10,7 +10,7 @@ describe('Project Index', () => {
 
   it('should serve client files', (done) => {
     request(server).get('/index.html').end((err, res) => {
-      expect(err).to.be.null;
+      expect(err).to.be.equal(null);
       expect(res).to.have.status(200);
       done();
     });

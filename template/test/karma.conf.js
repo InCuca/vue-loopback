@@ -3,7 +3,7 @@ import vueify from 'vueify';
 import modulesify from 'css-modulesify';
 import tmp from 'tmp';
 import {dirs} from '../gulp-tasks/config';
-import {customSass} from '../gulp-tasks/compilers.js';
+import {customSass} from '../gulp-tasks/compilers';
 
 const cssBundleFile = tmp.fileSync();
 

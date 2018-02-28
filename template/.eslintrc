@@ -14,8 +14,8 @@
   "plugins": [
     "vue"
   ],
-  "settings": {
-    "import/resolver": "./.resolver.js"
+  "rules": {
+    "import/no-unresolved": "off"
   },
   "globals": {
     "expect": true,

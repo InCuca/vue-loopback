@@ -1,4 +1,4 @@
-import app from '../../server/server.js';
+import app from '../../server/server';
 
 describe('Account', () => {
   const Account = app.models.Account;
@@ -10,7 +10,9 @@ describe('Account', () => {
     app.start();
     return appStarted.then(() => Account
       .create({email, password: 'IuhEW7HI#&HUH3'})
-      .then(acc => testAccount = acc));
+      .then((acc) => {
+        testAccount = acc
+      }));
   });
 
   afterEach(() => {
