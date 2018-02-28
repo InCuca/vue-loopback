@@ -1,6 +1,6 @@
 {
   "name": "vue-loopback",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A Vue project template with Loopback framework featuring ES6, Gulp, and Mocha for unit tests",
   "main": "meta.js",
   "scripts": {
