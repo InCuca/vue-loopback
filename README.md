@@ -45,7 +45,7 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 ## Executing built files
 
 ```bash
-  $ cd build/client
+  $ cd build
   $ npm run start
 ```
 

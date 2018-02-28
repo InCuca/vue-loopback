@@ -42,7 +42,7 @@
 ## Executing built files
 
 ```bash
-  $ cd build/client
+  $ cd build
   $ npm run start
 ```
 
