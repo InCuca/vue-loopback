@@ -11,17 +11,16 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
 // import 'vue-awesome/icons';
 import Icon from 'vue-awesome';
-
-Vue.use(BootstrapVue);
-
-Vue.component('icon', Icon);
-
 {{/extended}}
+
 /* Local Components and modules */
 import App from './App.vue';
 {{#extended}}
-import router from './router.js';
+import router from './router';
 import store from './store';
+
+Vue.use(BootstrapVue);
+Vue.component('icon', Icon);
 
 // Add router state to store
 sync(store, router);
@@ -33,7 +32,7 @@ import './static/main.css';
 // Instance Application
 export default new Vue({
   el: '#app',
-  render: (r) => r(App),
+  render: r => r(App),
   {{#extended}}
   router,
   store,
