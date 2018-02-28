@@ -54,6 +54,7 @@
     "babel-eslint": "^8.2.2",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^11.3.0",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-config-loopback": "^8.0.0",
     "eslint-plugin-vue": "^4.0.0",
     "gulp": "^3.9.1",
