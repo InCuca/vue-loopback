@@ -76,10 +76,10 @@ gulp.task('build:common', () => {
 
 gulp.task('build:server', ['copy:server'], () => {
   return gulp.src(path.resolve(dirs.srcServer, '**/*.js'))
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildServer));
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(dirs.buildServer));
 });
 
 gulp.task('build:index', () => {
