@@ -17,10 +17,10 @@ gulp.task('copy:client', ['copy:client:fa'], () => {
 
 gulp.task('copy:package', () => {
   return gulp.src(`${dirs.root}/package.json`)
-  .pipe(gulp.dest(path.resolve(dirs.build)));
+    .pipe(gulp.dest(path.resolve(dirs.build)));
 });
 
 gulp.task('copy:server', () => {
   return gulp.src(`${dirs.srcServer}/**/*.json`)
-  .pipe(gulp.dest(path.resolve(dirs.buildServer)));
+    .pipe(gulp.dest(path.resolve(dirs.buildServer)));
 });
