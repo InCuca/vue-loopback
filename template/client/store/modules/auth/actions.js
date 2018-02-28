@@ -90,7 +90,11 @@ export function signOut({commit}) {
 export function loadAccount({commit}, userId) {
   return loopback
     .get(`/Accounts/${userId}`)
-    .then(acc => commit('setAccount', acc));
+    .then(acc => commit('setAccount', acc))
+    .catch(() => {
+      loopback.removeToken();
+      router.push({ name: 'login' });
+    });
 }
 
 /**
