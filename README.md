@@ -10,12 +10,12 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 1. `client`: Vue client files
 2. `common`: Common client and server model files
 3. `server`: Loopback server files
-4. `test`: Unit and E2E test files
+4. `test`: Unit test
 
-## Usage
+## Installation
 
 ```
-  $ vue-cli init InCuca/vue-loopback
+  $ npm install
 ```
 
 ## Linting
@@ -27,8 +27,7 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 ## Testing
 
 ```
-  $ npm test:server
-  $ npm test:client
+  $ npm test
 ```
 
 ## Running the development server (API and Client)
@@ -45,14 +44,12 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 
 ## Executing built files
 
-For client you can use any http server, like [http-server](https://github.com/indexzero/http-server):
-
 ```bash
   $ cd build/client
-  $ http-server
+  $ npm run start
 ```
 
-You can run the server with:
+You can run only the server with:
 
 ```bash
   $ cd build/server
