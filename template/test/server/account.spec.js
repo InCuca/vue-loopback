@@ -11,7 +11,7 @@ describe('Account', () => {
     return appStarted.then(() => Account
       .create({email, password: 'IuhEW7HI#&HUH3'})
       .then((acc) => {
-        testAccount = acc
+        testAccount = acc;
       }));
   });
 

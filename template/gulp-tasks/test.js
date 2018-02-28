@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import mocha from 'gulp-mocha';
 import {Server} from 'karma';
 import path from 'path';
-import {dirs} from './config.js';
+import {dirs} from './config';
 
 gulp.task('test:server', () => gulp.src(path.resolve(dirs.testServer, '**/*.spec.js'))
   .pipe(mocha({

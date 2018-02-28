@@ -2,14 +2,15 @@ import Vue from 'vue';
 import App from '@/App.vue';
 
 describe('App.vue', () => {
-  let Constructor, vm;
+  let Constructor;
+  let vm;
   {{#extended}}
   const routerView = {
     render: r => r('div', 'mocked component'),
   };
   {{/extended}}
 
-  beforeEach(done => {
+  beforeEach((done) => {
     Constructor = Vue.extend(App);
     vm = new Constructor({
       mounted: () => done(),

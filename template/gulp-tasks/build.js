@@ -8,8 +8,8 @@ import babelify from 'babelify';
 import modulesify from 'css-modulesify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
-import {dirs} from './config.js';
-import {customSass} from './compilers.js';
+import {dirs} from './config';
+import {customSass} from './compilers';
 
 gulp.task('build:test', () => gulp.src([
   path.resolve(dirs.test, '**/*.test.js'),

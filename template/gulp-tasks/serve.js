@@ -2,8 +2,8 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import connect from 'gulp-connect';
 import historyApiFallback from 'connect-history-api-fallback';
-import {dirs} from './config.js';
-import server from '../server/server.js';
+import {dirs} from './config';
+import server from '../server/server';
 
 gulp.task('reload:server', ['build:server'], () => {
   gutil.log('Reloading server');

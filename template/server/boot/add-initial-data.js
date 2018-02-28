@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import initialProf from '../../server/initial-data/example1-teacher';
 // import initialClassroom from '../../server/initial-data/example1-classroom';
 // import initialStudent from '../../server/initial-data/example1-student';

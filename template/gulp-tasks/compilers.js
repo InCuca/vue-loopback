@@ -1,6 +1,6 @@
 import path from 'path';
 import sass from 'vueify/lib/compilers/sass';
-import {dirs} from './config.js';
+import {dirs} from './config';
 
 function replaceCuringas(content) {
   // FIXME: Not working

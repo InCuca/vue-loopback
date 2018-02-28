@@ -1,5 +1,5 @@
 import loopback from '@/services/loopback';
-import router from '@/router.js';
+import router from '@/router';
 
 /**
  * Sync loopback token with current state

@@ -1,4 +1,4 @@
-import initialAccount from '../initial-data/maintenance-account';
+import initialAccount from '../initial-data/maintenance-account.json';
 
 export const email = initialAccount.email;
 export const password = initialAccount.password;
@@ -17,6 +17,7 @@ export default function createAdmin(server) {
       if (accounts.length < 1) {
         return Account.create({email, password});
       }
+      return null
     })
     .then((account) => {
       if (account) {
@@ -36,16 +37,19 @@ export default function createAdmin(server) {
             ({account, role})
           );
       }
+      return null
     })
     .then((payload) => { // get account and role from payload
       if (payload && payload.account && payload.role) {
-        return payload.role.principals.create({
+        const myPayload = {...payload}
+        return myPayload.role.principals.create({
           principalType: RoleMapping.USER,
-          principalId: payload.account.id,
+          principalId: myPayload.account.id,
         }).then((principal) => {
-          payload.principal = principal;
-          return payload;
+          myPayload.principal = principal;
+          return myPayload;
         });
       }
+      return null
     });
 }

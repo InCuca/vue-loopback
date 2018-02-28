@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import path from 'path';
-import {dirs} from './config.js';
+import {dirs} from './config';
 
 gulp.task('copy:client:fa', () => gulp.src(path.resolve(dirs.modules, 'font-awesome/fonts/*'))
   .pipe(gulp.dest(path.resolve(dirs.buildClient, 'static/fonts'))));

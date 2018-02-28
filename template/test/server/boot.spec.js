@@ -62,7 +62,7 @@ describe('boot process', () => {
     });
 
     it('should create a default admin user', () => {
-      return server.models.Account.find().then(res => {
+      return server.models.Account.find().then((res) => {
         expect(res).to.have.lengthOf(1);
         expect(res[0]).to.have.property('createdAt');
         expect(res[0]).to.have.property('updatedAt');
@@ -73,7 +73,7 @@ describe('boot process', () => {
     });
 
     it('should create a default admin role', () => {
-      return server.models.Role.find().then(res => {
+      return server.models.Role.find().then((res) => {
         expect(res).to.have.lengthOf(1);
         expect(res[0]).to.have.property('created');
         expect(res[0]).to.have.property('modified');
@@ -84,7 +84,7 @@ describe('boot process', () => {
 
     it('should create RoleMapping entry for admin', () => {
       const RoleMapping = server.models.RoleMapping;
-      return RoleMapping.find().then(res => {
+      return RoleMapping.find().then((res) => {
         expect(res).to.have.lengthOf(1);
         expect(res[0].id).to.equal(1);
         expect(res[0].roleId).to.equal(1);

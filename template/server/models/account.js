@@ -15,6 +15,7 @@ export default function(Account) {
     }, (err) => {
       if (err) return console.log(err);
       console.log('> sending password reset email to:', info.email);
+      return
     });
   });
 }

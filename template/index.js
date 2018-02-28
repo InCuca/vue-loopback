@@ -1,5 +1,5 @@
-import app from './server/server';
 import express from 'express';
+import app from './server/server';
 
 app.use(express.static('client'));
 app.on('started', () => {
