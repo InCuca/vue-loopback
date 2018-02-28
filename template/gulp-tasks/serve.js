@@ -41,7 +41,7 @@ gulp.task('serve:client', ['build:client', 'watch:client'], () => {
     name: 'Client App',
     root: dirs.buildClient,
     livereload: true,
-    middleware: (connect, opt) => [historyApiFallback()],
+    middleware: () => [historyApiFallback()],
   });
 });
 

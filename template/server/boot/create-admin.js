@@ -17,7 +17,7 @@ export default function createAdmin(server) {
       if (accounts.length < 1) {
         return Account.create({email, password});
       }
-      return null
+      return null;
     })
     .then((account) => {
       if (account) {
@@ -37,11 +37,11 @@ export default function createAdmin(server) {
             ({account, role})
           );
       }
-      return null
+      return null;
     })
     .then((payload) => { // get account and role from payload
       if (payload && payload.account && payload.role) {
-        const myPayload = {...payload}
+        const myPayload = {...payload};
         return myPayload.role.principals.create({
           principalType: RoleMapping.USER,
           principalId: myPayload.account.id,
@@ -50,6 +50,6 @@ export default function createAdmin(server) {
           return myPayload;
         });
       }
-      return null
+      return null;
     });
 }

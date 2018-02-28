@@ -65,11 +65,13 @@ gulp.task('build:client', ['copy:client'], () => {
     .pipe(gulp.dest(dirs.buildClient));
 });
 
-gulp.task('build:common', () => gulp.src(path.resolve(dirs.srcCommon, '**/*.js'))
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildCommon)));
+gulp.task('build:common', () => {
+  return gulp.src(path.resolve(dirs.srcCommon, '**/*.js'))
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(dirs.buildCommon));
+})
 
 gulp.task('build:server', ['copy:server'], () => gulp.src([
   path.resolve(dirs.srcServer, '**/*.js'),

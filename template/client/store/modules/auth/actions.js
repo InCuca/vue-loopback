@@ -14,10 +14,10 @@ export function syncToken({commit, dispatch}) {
 /**
  * Sync router for auth
  */
-export function syncRouter({state, dispatch}, router) {
+export function syncRouter({state, dispatch}, myRouter) {
   dispatch('syncToken');
 
-  router.beforeEach((to, from, next) => {
+  myRouter.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
       // this route requires auth, check if logged in
       // if not, redirect to login page (except when it's profile route and
@@ -103,7 +103,7 @@ export function loadAccount({commit}, userId) {
  * @param  {String}   newPassword  new password
  * @return {Promise}              promise of the password reset
  */
-export function resetPassword({commit, state}, {oldPassword, newPassword}) {
+export function resetPassword(ctx, {oldPassword, newPassword}) {
   return loopback
     .post(
       '/Accounts/change-password',
@@ -117,7 +117,7 @@ export function resetPassword({commit, state}, {oldPassword, newPassword}) {
  * @param  {String}   email        user email
  * @return {Promise}               promise of the sent email
  */
-export function rememberPassword({commit}, email) {
+export function rememberPassword(ctx, email) {
   return loopback
     .post('/Accounts/reset', {email});
 }

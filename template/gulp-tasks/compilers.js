@@ -1,3 +1,4 @@
+/* eslint no-useless-escape: 0, import/prefer-default-export: 0 */
 import path from 'path';
 import sass from 'vueify/lib/compilers/sass';
 import {dirs} from './config';
@@ -12,6 +13,7 @@ function replaceCuringas(content) {
 }
 
 export function customSass(content, callback, compiler, filePath) {
+  let myContent = content
   const relativePath = path.relative(
     path.dirname(filePath),
     path.resolve(dirs.srcClient, 'style/global.scss')
@@ -19,12 +21,12 @@ export function customSass(content, callback, compiler, filePath) {
 
   // Global SCSS
   //
-  content = `@import "${relativePath}";${content}`;
+  myContent = `@import "${relativePath}";${myContent}`;
 
-  content = replaceCuringas(content);
+  myContent = replaceCuringas(myContent);
 
   sass(
-    content,
+    myContent,
     callback,
     compiler,
     filePath

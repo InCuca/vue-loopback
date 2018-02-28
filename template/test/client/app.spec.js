@@ -2,8 +2,7 @@ import Vue from 'vue';
 import App from '@/App.vue';
 
 describe('App.vue', () => {
-  let Constructor;
-  let vm;
+  let Constructor, vm;
   {{#extended}}
   const routerView = {
     render: r => r('div', 'mocked component'),

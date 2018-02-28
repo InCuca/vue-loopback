@@ -25,7 +25,9 @@
           "gulp-tasks/**/*.js"
         ]
       }
-    ]
+    ],
+    "import/extensions": "off",
+    "no-param-reassign": "off"
   },
   "globals": {
     "expect": true,
