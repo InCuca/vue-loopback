@@ -13,9 +13,9 @@ gulp.task('reload:server', ['build:server'], () => {
 
 gulp.task('watch:server', () => {
   gulp.watch([
-    dirs.srcServer + '/**/*.js',
-    dirs.srcServer + '/**/*.json',
-    dirs.srcCommon + '/**/*.js',
+    `${dirs.srcServer}/**/*.js`,
+    `${dirs.srcServer}/**/*.json`,
+    `${dirs.srcCommon}/**/*.js`,
   ], ['reload:server']);
 });
 
@@ -27,8 +27,8 @@ gulp.task('reload:client', ['build:client'], () => {
 
 gulp.task('watch:client', () => {
   gulp.watch([
-    dirs.srcClient + '/**/*',
-    dirs.srcCommon + '/**/*.js',
+    `${dirs.srcClient}/**/*`,
+    `${dirs.srcCommon}/**/*.js`,
   ], ['reload:client']);
 });
 
@@ -41,9 +41,7 @@ gulp.task('serve:client', ['build:client', 'watch:client'], () => {
     name: 'Client App',
     root: dirs.buildClient,
     livereload: true,
-    middleware: (connect, opt) => {
-      return [historyApiFallback()];
-    },
+    middleware: (connect, opt) => [historyApiFallback()],
   });
 });
 

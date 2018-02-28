@@ -1,8 +1,8 @@
 export default function(Message) {
   Message.greet = (msg, cb) => {
-    process.nextTick(function() {
+    process.nextTick(() => {
       msg = msg || 'hello';
-      cb(null, 'Sender says ' + msg + ' to receiver');
+      cb(null, `Sender says ${msg} to receiver`);
     });
   };
-};
+}

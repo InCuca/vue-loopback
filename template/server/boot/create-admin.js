@@ -13,16 +13,16 @@ export default function createAdmin(server) {
 
   return Account
     .find()
-    .then(accounts => {
+    .then((accounts) => {
       if (accounts.length < 1) {
         return Account.create({email, password});
       }
     })
-    .then(account => {
+    .then((account) => {
       if (account) {
         return Role
           .find({name: 'admin'})
-          .then(roles => {
+          .then((roles) => {
             if (roles.length < 1) {
               return Role.create({
                 name: 'admin',
@@ -31,18 +31,18 @@ export default function createAdmin(server) {
 
             return roles[0];
           })
-          .then(role => {
+          .then(role =>
             // resolve with a payload
-            return {account, role};
-          });
+            ({account, role})
+          );
       }
     })
-    .then(payload => { // get account and role from payload
+    .then((payload) => { // get account and role from payload
       if (payload && payload.account && payload.role) {
         return payload.role.principals.create({
           principalType: RoleMapping.USER,
           principalId: payload.account.id,
-        }).then(principal => {
+        }).then((principal) => {
           payload.principal = principal;
           return payload;
         });

@@ -11,16 +11,14 @@ import buffer from 'vinyl-buffer';
 import {dirs} from './config.js';
 import {customSass} from './compilers.js';
 
-gulp.task('build:test', () => {
-  return gulp.src([
-    path.resolve(dirs.test, '**/*.test.js'),
-    path.resolve(dirs.test, 'config.js'),
-  ])
+gulp.task('build:test', () => gulp.src([
+  path.resolve(dirs.test, '**/*.test.js'),
+  path.resolve(dirs.test, 'config.js'),
+])
   .pipe(sourcemaps.init())
   .pipe(babel())
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest(dirs.buildTest));
-});
+  .pipe(gulp.dest(dirs.buildTest)));
 
 gulp.task('build:client', ['copy:client'], () => {
   vueify.compiler.applyConfig({
@@ -34,7 +32,7 @@ gulp.task('build:client', ['copy:client'], () => {
     },
   });
 
-  let b = browserify({
+  const b = browserify({
     entries: path.resolve(dirs.srcClient, 'main.js'),
     debug: true,
   });
@@ -49,43 +47,38 @@ gulp.task('build:client', ['copy:client'], () => {
       'bundle.css'
     ),
     global: true,
-    generateScopedName: function(name, filename) {
-      var matches = filename.match(/^\/node_modules/);
+    generateScopedName(name, filename) {
+      const matches = filename.match(/^\/node_modules/);
       if (matches) return name;
       if (process.env.NODE_ENV === 'production') {
         return modulesify.generateShortName(name, filename);
-      } else {
-        return modulesify.generateLongName(name, filename);
       }
+      return modulesify.generateLongName(name, filename);
     },
   });
 
   return b.bundle()
-  .pipe(source('bundle.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init({loadMaps: true}))
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildClient));
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(dirs.buildClient));
 });
 
-gulp.task('build:common', () => {
-  return gulp.src(path.resolve(dirs.srcCommon, '**/*.js'))
+gulp.task('build:common', () => gulp.src(path.resolve(dirs.srcCommon, '**/*.js'))
   .pipe(sourcemaps.init())
   .pipe(babel())
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildCommon));
-});
+  .pipe(gulp.dest(dirs.buildCommon)));
 
-gulp.task('build:server', ['copy:server'], () => {
-  return gulp.src([
-    path.resolve(dirs.srcServer, '**/*.js'),
-    path.resolve(dirs.root, 'index.js'),
-  ])
+gulp.task('build:server', ['copy:server'], () => gulp.src([
+  path.resolve(dirs.srcServer, '**/*.js'),
+  path.resolve(dirs.root, 'index.js'),
+])
   .pipe(sourcemaps.init())
   .pipe(babel())
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dirs.buildServer));
-});
+  .pipe(gulp.dest(dirs.buildServer)));
 
 gulp.task('build', [
   'build:test',

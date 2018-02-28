@@ -6,13 +6,11 @@ describe('Account', () => {
   let testAccount;
 
   beforeEach(() => {
-    let appStarted = new Promise(res => app.addListener('started', res));
+    const appStarted = new Promise(res => app.addListener('started', res));
     app.start();
-    return appStarted.then(() => {
-      return Account
-        .create({email, password: 'IuhEW7HI#&HUH3'})
-        .then(acc => testAccount = acc);
-    });
+    return appStarted.then(() => Account
+      .create({email, password: 'IuhEW7HI#&HUH3'})
+      .then(acc => testAccount = acc));
   });
 
   afterEach(() => {
@@ -20,10 +18,8 @@ describe('Account', () => {
     app.close();
   });
 
-  it('should send reset email to test user', () => {
-    return request(app)
-      .post('/api/Accounts/reset')
-      .send({email})
-      .then(res => expect(res).to.have.status(204));
-  }).slow(5000).timeout(30000);
+  it('should send reset email to test user', () => request(app)
+    .post('/api/Accounts/reset')
+    .send({email})
+    .then(res => expect(res).to.have.status(204))).slow(5000).timeout(30000);
 });

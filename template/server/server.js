@@ -7,12 +7,12 @@ let httpServer;
 
 app.start = function() {
   // start the web server
-  httpServer = app.listen(function() {
+  httpServer = app.listen(() => {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('API server listening at: %s', baseUrl + '/api');
+    const baseUrl = app.get('url').replace(/\/$/, '');
+    console.log('API server listening at: %s', `${baseUrl}/api`);
     if (app.get('loopback-component-explorer')) {
-      var explorerPath = app.get('loopback-component-explorer').mountPath;
+      const explorerPath = app.get('loopback-component-explorer').mountPath;
       console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
   });
@@ -29,8 +29,7 @@ boot(app, __dirname, (err) => {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module)
-    app.start();
+  if (require.main === module) { app.start(); }
 });
 
 // export app

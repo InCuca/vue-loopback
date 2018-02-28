@@ -4,7 +4,7 @@ import {dirs} from './config.js';
 
 function replaceCuringas(content) {
   // FIXME: Not working
-  const replacer = '@import "' + dirs.srcClient + '/$2";';
+  const replacer = `@import "${dirs.srcClient}/$2";`;
 
   let replaced = content.replace(/@import.+(\@)(.*?)[\"\']/, replacer);
   replaced = content.replace(/@import.+(\~)(.*?)[\"\']/, replacer);
@@ -19,7 +19,7 @@ export function customSass(content, callback, compiler, filePath) {
 
   // Global SCSS
   //
-  content = '@import "' + relativePath + '";' + content;
+  content = `@import "${relativePath}";${content}`;
 
   content = replaceCuringas(content);
 

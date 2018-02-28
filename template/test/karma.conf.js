@@ -34,14 +34,13 @@ export default (config) => {
       transform: [babelify, vueify],
       plugin: [[modulesify, {
         global: true,
-        generateScopedName: function(name, filename) {
-          var matches = filename.match(/^\/node_modules/);
+        generateScopedName(name, filename) {
+          const matches = filename.match(/^\/node_modules/);
           if (matches) return name;
           if (process.env.NODE_ENV === 'production') {
             return modulesify.generateShortName(name, filename);
-          } else {
-            return modulesify.generateLongName(name, filename);
           }
+          return modulesify.generateLongName(name, filename);
         },
       }]],
     },

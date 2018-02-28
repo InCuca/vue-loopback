@@ -27,12 +27,12 @@ function addTokenFromLocalStorage(http) {
 }
 
 const http = axios.create({
-  baseURL: 'http://' + host + ':' + port + restApiRoot,
+  baseURL: `http://${host}:${port}${restApiRoot}`,
 });
 
 http.setToken = (token, save = true) => {
   http.token = token;
-  http.defaults.headers.common['Authorization'] = token.id;
+  http.defaults.headers.common.Authorization = token.id;
   if (save) exportTokenToLocalStorage(token);
 };
 
@@ -43,7 +43,7 @@ http.removeToken = () => {
 
 http.find = (endpoint, filter) => http.get(endpoint, {params: {filter}});
 
-const interceptErrors = err => {
+const interceptErrors = (err) => {
   try {
     err = Object.assign(new Error(), err.response.data.error);
   } catch (e) {
@@ -51,7 +51,7 @@ const interceptErrors = err => {
   }
   return Promise.reject(err);
 };
-const interceptResponse = res => {
+const interceptResponse = (res) => {
   try {
     return res.data;
   } catch (e) {

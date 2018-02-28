@@ -46,23 +46,23 @@ export function syncRouter({state, dispatch}, router) {
  */
 export function signIn({commit, dispatch, state}, {email, password}) {
   return loopback
-   .post('/Accounts/login', {
-     email,
-     password,
-   })
-   .then(token => {
-     commit('setAccessToken', token);
+    .post('/Accounts/login', {
+      email,
+      password,
+    })
+    .then((token) => {
+      commit('setAccessToken', token);
 
-     // Update Loopback Token
-     if (state.access_token !== null) {
-       loopback.setToken(state.access_token);
-     } else {
-       loopback.removeToken();
-     }
+      // Update Loopback Token
+      if (state.access_token !== null) {
+        loopback.setToken(state.access_token);
+      } else {
+        loopback.removeToken();
+      }
 
-     router.push({name: 'dashboard'});
-     return dispatch('loadAccount', state.access_token.userId);
-   });
+      router.push({name: 'dashboard'});
+      return dispatch('loadAccount', state.access_token.userId);
+    });
 }
 
 /**
@@ -89,7 +89,7 @@ export function signOut({commit}) {
  */
 export function loadAccount({commit}, userId) {
   return loopback
-    .get('/Accounts/' + userId)
+    .get(`/Accounts/${userId}`)
     .then(acc => commit('setAccount', acc));
 }
 
