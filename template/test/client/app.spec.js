@@ -29,9 +29,9 @@ describe('App.vue', () => {
   });
   {{else}}
   it('should render correct content', () => {
-    const vm = new Constructor().$mount();
+    const newVm = new Constructor().$mount();
     return Vue.nextTick().then(() => {
-      expect(vm.$el.innerHTML).to.equal('Hello World!');
+      expect(newVm.$el.innerHTML).to.equal('Hello World!');
     });
   });
   {{/extended}}
