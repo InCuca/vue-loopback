@@ -4,7 +4,8 @@
   "description": "A Vue project template with Loopback framework featuring ES6, Gulp, and Mocha for unit tests",
   "main": "meta.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,12 @@
   },
   "homepage": "https://github.com/InCuca/vue-loopback#readme",
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^11.3.0",
+    "eslint-config-loopback": "^8.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-vue": "^4.0.0",
     "vue-cli": "^2.9.1"
   }
 }
