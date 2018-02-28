@@ -93,7 +93,7 @@ export function loadAccount({commit}, userId) {
     .then(acc => commit('setAccount', acc))
     .catch(() => {
       loopback.removeToken();
-      router.push({ name: 'login' });
+      router.push({name: 'login'});
     });
 }
 
