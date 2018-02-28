@@ -8,10 +8,10 @@ gulp.task(
   'test:server',
   () =>
     gulp.src(path.resolve(dirs.testServer, '**/*.spec.js'))
-    .pipe(mocha({
-      compilers: 'js:babel-core/register',
-      require: path.resolve(dirs.test, 'mocha.conf.js'),
-    }))
+      .pipe(mocha({
+        compilers: 'js:babel-core/register',
+        require: path.resolve(dirs.test, 'mocha.conf.js'),
+      }))
 );
 
 gulp.task('test:client', (done) => {

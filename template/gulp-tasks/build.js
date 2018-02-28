@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import gulp from 'gulp';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
@@ -71,7 +72,7 @@ gulp.task('build:common', () => {
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dirs.buildCommon));
-})
+});
 
 gulp.task('build:server', ['copy:server'], () => gulp.src([
   path.resolve(dirs.srcServer, '**/*.js'),

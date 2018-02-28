@@ -13,7 +13,7 @@ function replaceCuringas(content) {
 }
 
 export function customSass(content, callback, compiler, filePath) {
-  let myContent = content
+  let myContent = content;
   const relativePath = path.relative(
     path.dirname(filePath),
     path.resolve(dirs.srcClient, 'style/global.scss')

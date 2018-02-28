@@ -27,7 +27,8 @@
       }
     ],
     "import/extensions": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "one-var-declaration-per-line": "off"
   },
   "globals": {
     "expect": true,
