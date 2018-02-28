@@ -23,8 +23,8 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "eslint": "^4.15.0",
+    "eslint-config-loopback": "^10.0.0",
     "eslint-config-airbnb-base": "^11.3.0",
-    "eslint-config-loopback": "^8.0.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-vue": "^4.0.0",
     "vue-cli": "^2.9.1"
