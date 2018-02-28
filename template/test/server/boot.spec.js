@@ -26,7 +26,7 @@ describe('boot process', () => {
   describe('root.js', () => {
     it('should return server status by root.js', (done) => {
       let conn = server.listen(8000, () => {
-        request(server).get('/').then((res) => {
+        request(server).get('/api').then((res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.have.property('started');
           expect(res.body).to.have.property('uptime');
