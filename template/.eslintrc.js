@@ -22,22 +22,5 @@ module.exports = {
     assert: true,
     require: true,
     request: true
-  },
-  // add your custom rules here
-  rules: {
-    // disallow reassignment of function parameters
-    // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error',
-      {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-        ]
-      }
-    ],
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
 }
