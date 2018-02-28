@@ -9,6 +9,7 @@ const initNoExtQuestions = [
   {search: /^\?.+/, response: '\n'},
 ];
 
+/* eslint-disable max-len */
 const commands = [
   {cmd: 'rm', args: ['-r', 'test-project'], ignoreErrors: true},
   {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], responses: initQuestions},
@@ -25,6 +26,7 @@ const commands = [
   {cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'build'], cwd: 'test-project'},
 ];
+/* eslint-enable max-len */
 
 function executeCommand(command, index) {
   return new Promise((resolve, reject) => {
@@ -80,8 +82,12 @@ function executeCommand(command, index) {
   });
 }
 
-commands.reduce((prev, next, index) => prev.then(() => executeCommand(next, index)
-  .catch((code) => {
-    console.log('child process exit with', code);
-    if (!next.ignoreErrors) process.exit(code);
-  })), Promise.resolve());
+commands.reduce(
+  (prev, next, index) =>
+    prev.then(() =>
+      executeCommand(next, index).catch((code) => {
+        console.log('child process exit with', code);
+        if (!next.ignoreErrors) process.exit(code);
+      })),
+  Promise.resolve()
+);

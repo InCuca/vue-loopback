@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
 module.exports = {
   prompts: {
     name: {
@@ -20,7 +17,8 @@ module.exports = {
     },
     extended: {
       type: 'confirm',
-      message: 'Add basic Login and Admin views with Vuex, Vue-router and Bootstrap-vue?',
+      message: `Add basic Login and Admin views with Vuex,
+      Vue-router and Bootstrap-vue?`,
     },
   },
   filters: {
