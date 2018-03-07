@@ -4,10 +4,9 @@ import router from '@/router';
 /**
  * Sync loopback token with current state
 */
-export function syncToken({commit, dispatch}) {
+export function syncToken({commit}) {
   if (loopback.token) {
     commit('setAccessToken', loopback.token);
-    return dispatch('loadAccount', loopback.token.userId);
   }
 }
 
@@ -15,7 +14,7 @@ export function syncToken({commit, dispatch}) {
  * Sync router for auth
  */
 export function syncRouter({state, dispatch}, myRouter) {
-  const synced = dispatch('syncToken');
+  dispatch('syncToken');
 
   myRouter.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
@@ -29,7 +28,8 @@ export function syncRouter({state, dispatch}, myRouter) {
           name: 'login',
         });
       } else {
-        synced.then(next);
+        dispatch('loadAccount', state.access_token.userId)
+          .then(next);
       }
     } else {
       next(); // make sure to always call next()!
