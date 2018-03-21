@@ -54,6 +54,7 @@ http.find = (endpoint, filter) => http.get(endpoint, {params: {filter}});
 
 /* Response Interceptors */
 const interceptResErrors = (err) => {
+  setLoading(false, err.response.config.uid);
   try {
     err = Object.assign(new Error(), err.response.data.error);
   } catch (e) {
