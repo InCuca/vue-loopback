@@ -1,8 +1,5 @@
 import initialAccount from '../initial-data/maintenance-account.json';
 
-export const email = initialAccount.email;
-export const password = initialAccount.password;
-
 /**
  * Create the first admin user if there are not users in the system
  */
@@ -15,7 +12,7 @@ export default function createAdmin(server) {
     .find()
     .then((accounts) => {
       if (accounts.length < 1) {
-        return Account.create({email, password});
+        return Account.create(initialAccount);
       }
       return null;
     })
