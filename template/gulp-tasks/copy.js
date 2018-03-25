@@ -5,7 +5,6 @@ import fs from 'fs';
 import {argv} from 'yargs';
 import {dirs, prod} from './config';
 
-
 gulp.task('copy:client:fa', () => {
   return gulp
     .src(path.resolve(dirs.modules, 'font-awesome/fonts/*'))

@@ -5,8 +5,8 @@ import app from './server/server';
 
 const client = path.resolve(__dirname, 'client');
 
-const unless = function (paths, middleware) {
-  return function (req, res, next) {
+const unless = function(paths, middleware) {
+  return function(req, res, next) {
     if (paths.some(p => req.path.indexOf(p) > -1)) {
       return next();
     }
@@ -21,7 +21,7 @@ app.use(express.static(client));
 // enable redirect urls to index
 app.use(unless(
   ['/api', '/explorer'],
-  fallback('index.html', { root: client }),
+  fallback('index.html', {root: client}),
 ));
 
 // start app

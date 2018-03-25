@@ -7,6 +7,7 @@ import browserify from 'browserify';
 import vueify from 'vueify';
 import babelify from 'babelify';
 import modulesify from 'css-modulesify';
+import aliasify from 'aliasify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import {argv} from 'yargs';
