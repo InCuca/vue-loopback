@@ -9,6 +9,7 @@ import babelify from 'babelify';
 import modulesify from 'css-modulesify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
+import {argv} from 'yargs';
 import {dirs} from './config';
 import {customSass} from './compilers';
 
@@ -21,7 +22,7 @@ gulp.task('build:test', () => gulp.src([
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(dirs.buildTest)));
 
-gulp.task('build:client', ['copy:client'], () => {
+gulp.task('build:client', ['copy:client', 'copy:config:server'], () => {
   vueify.compiler.applyConfig({
     sass: {
       includePaths: [
@@ -58,6 +59,18 @@ gulp.task('build:client', ['copy:client'], () => {
     },
   });
 
+  if (argv.production) {
+    b.transform(aliasify, {
+      replacements: {
+        '(.+)server/config.json$': path.resolve(
+          dirs.buildServer,
+          'config.json',
+        ),
+      },
+      verbose: true,
+    });
+  }
+
   return b.bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
@@ -74,7 +87,7 @@ gulp.task('build:common', () => {
     .pipe(gulp.dest(dirs.buildCommon));
 });
 
-gulp.task('build:server', ['copy:server'], () => {
+gulp.task('build:server', ['copy:server', 'copy:config:server'], () => {
   return gulp.src(path.resolve(dirs.srcServer, '**/*.js'))
     .pipe(sourcemaps.init())
     .pipe(babel())
