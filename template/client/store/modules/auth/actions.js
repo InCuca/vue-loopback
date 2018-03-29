@@ -71,9 +71,10 @@ export function signIn({commit, dispatch, state}, {email, password}) {
  * @param  {Function} commit commit mutations function
  * @return {Promise}         promise of the logout
  */
-export function signOut({commit}) {
+export function signOut({commit, state}) {
   return loopback
     .post('/Accounts/logout', {
+      // eslint-disable-next-line dot-notation
       accessToken: state['access_token'],
     })
     .then(() => {
