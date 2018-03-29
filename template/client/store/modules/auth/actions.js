@@ -73,7 +73,9 @@ export function signIn({commit, dispatch, state}, {email, password}) {
  */
 export function signOut({commit}) {
   return loopback
-    .post('/Accounts/logout')
+    .post('/Accounts/logout', {
+      accessToken: state['access_token'],
+    })
     .then(() => {
       commit('setAccessToken', null);
       loopback.removeToken();
