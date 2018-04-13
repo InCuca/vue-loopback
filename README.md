@@ -3,7 +3,14 @@
 
 A Vue project template with [Loopback](http://loopback.io/) framework featuring ES6, Gulp, and Mocha for unit tests
 
-> This template is Vue 2.x **only**.
+> This template is for Vue 2.x **only** with [vue-cli](https://github.com/vuejs/vue-cli).
+
+## Usage
+
+```
+  $ vue-cli init InCuca/vue-loopback project-name`
+  $ npm install
+```
 
 ## Folder structure
 
@@ -11,12 +18,6 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 2. `common`: Common client and server model files
 3. `server`: Loopback server files
 4. `test`: Unit test
-
-## Installation
-
-```
-  $ npm install
-```
 
 ## Linting
 
