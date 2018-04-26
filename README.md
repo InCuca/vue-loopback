@@ -11,7 +11,6 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 * Full authentication support, by default the account listed in `server/initial-data/maintenance-account.json` is created;
 * Ajax Async queue module in `client/modules/async` (useful to see if and how many requests are being made to the server);
 * [CSS Modules](https://github.com/css-modules/css-modules), [Sass](https://sass-lang.com/) and [Bootstrap Vue](https://bootstrap-vue.js.org).
-*
 ## Usage
 
 ```
