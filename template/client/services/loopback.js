@@ -1,4 +1,4 @@
-import {host, restApiRoot, port} from '~/server/config.json';
+import { host, restApiRoot, port } from '~/server/config.json';
 import axios from 'axios';
 
 const Storage = window.localStorage;
@@ -28,11 +28,11 @@ function addTokenFromLocalStorage(http) {
 
 const http = axios.create({
   baseURL: `http://${host}:${port}${restApiRoot}`,
-});
+});fi
 
 // Current setLoading function
 let setLoading = () => {
-  throw Error('setLoadingFunction not defined');
+  console.warn('[loopback service] setLoadingFunction is not defined');
 };
 
 http.setLoadingFunction = (fn) => {
@@ -50,10 +50,11 @@ http.removeToken = () => {
   removeTokenFromLocalStorage();
 };
 
-http.find = (endpoint, filter) => http.get(endpoint, {params: {filter}});
+http.find = (endpoint, filter) => http.get(endpoint, { params: { filter } });
 
 /* Response Interceptors */
 const interceptResErrors = (err) => {
+  // console.log('error', err);
   setLoading(false, err.response.config.uid);
   try {
     err = Object.assign(new Error(), err.response.data.error);
