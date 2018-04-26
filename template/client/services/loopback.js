@@ -1,4 +1,4 @@
-import { host, restApiRoot, port } from '~/server/config.json';
+import {host, restApiRoot, port} from '~/server/config.json';
 import axios from 'axios';
 
 const Storage = window.localStorage;
@@ -50,7 +50,7 @@ http.removeToken = () => {
   removeTokenFromLocalStorage();
 };
 
-http.find = (endpoint, filter) => http.get(endpoint, { params: { filter } });
+http.find = (endpoint, filter) => http.get(endpoint, {params: {filter}});
 
 /* Response Interceptors */
 const interceptResErrors = (err) => {
