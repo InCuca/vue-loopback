@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import async from './modules/async';
 import auth from './modules/auth';
 
 Vue.use(Vuex);
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     }],
   },
   modules: {
+    async, // async namespaced
     auth, // auth namespaced
   },
 });

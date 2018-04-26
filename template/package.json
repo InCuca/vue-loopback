@@ -37,6 +37,7 @@
     "install": "^0.10.1",
     "lodash.defaultsdeep": "^4.6.0",
     "loopback-ds-timestamp-mixin": "^3.4.1",
+    "uid": "0.0.2",
     "vue-awesome": "^2.3.4",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.3",

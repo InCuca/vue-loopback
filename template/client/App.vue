@@ -13,6 +13,10 @@ export default {
     hello: 'Hello World!',
   }),
   {{/unless}}
+  created() {
+    // Boot Application
+    this.$store.dispatch('async/syncLoopback');
+  }
 }
 </script>
 

@@ -28,7 +28,7 @@ function addTokenFromLocalStorage(http) {
 
 const http = axios.create({
   baseURL: `http://${host}:${port}${restApiRoot}`,
-});fi
+});
 
 // Current setLoading function
 let setLoading = () => {
