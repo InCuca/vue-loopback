@@ -8,7 +8,7 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 ## Usage
 
 ```
-  $ vue-cli init InCuca/vue-loopback project-name`
+  $ vue-cli init InCuca/vue-loopback project-name
   $ npm install
 ```
 
