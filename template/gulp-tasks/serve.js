@@ -3,12 +3,14 @@ import gutil from 'gulp-util';
 import connect from 'gulp-connect';
 import historyApiFallback from 'connect-history-api-fallback';
 import {dirs} from './config';
-import server from '../server/server';
+
+let server = require('../server/server').default;
 
 gulp.task('reload:server', ['build:server'], () => {
   gutil.log('Reloading server');
-  server.close();
-  server.start();
+  delete require.cache[require.resolve('../server/server')];
+  /* eslint-disable-next-line global-require  */
+  server = require('../server/server');
 });
 
 gulp.task('watch:server', () => {
