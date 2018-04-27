@@ -1,4 +1,4 @@
-export default function (path) {
+export default function(path) {
   const paths = Object.keys(require.cache);
   paths.forEach((p) => {
     if (p.includes(path)) {

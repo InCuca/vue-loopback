@@ -3,7 +3,7 @@ import gutil from 'gulp-util';
 import connect from 'gulp-connect';
 import historyApiFallback from 'connect-history-api-fallback';
 import clearCache from './clear-cache';
-import { dirs } from './config';
+import {dirs} from './config';
 
 let server = require('../server/server').default;
 
