@@ -2,14 +2,15 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import connect from 'gulp-connect';
 import historyApiFallback from 'connect-history-api-fallback';
-import {dirs} from './config';
+import clearCache from './clear-cache';
+import { dirs } from './config';
 
 let server = require('../server/server').default;
 
 gulp.task('reload:server', ['build:server'], () => {
   gutil.log('Reloading server');
   server.close();
-  delete require.cache[require.resolve('../server/server')];
+  clearCache(dirs.srcServer);
   /* eslint-disable-next-line global-require  */
   server = require('../server/server').default;
   server.start();
