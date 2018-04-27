@@ -8,9 +8,11 @@ let server = require('../server/server').default;
 
 gulp.task('reload:server', ['build:server'], () => {
   gutil.log('Reloading server');
+  server.close();
   delete require.cache[require.resolve('../server/server')];
   /* eslint-disable-next-line global-require  */
-  server = require('../server/server');
+  server = require('../server/server').default;
+  server.start();
 });
 
 gulp.task('watch:server', () => {
