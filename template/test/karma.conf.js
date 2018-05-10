@@ -9,7 +9,7 @@ import {customSass} from '../gulp-tasks/compilers';
 const cssBundleFile = tmp.fileSync();
 
 // Just hook window.console to throw vue warn
-const consoleAppendfy = () => through(function (buf, enc, next) {
+const consoleAppendfy = file => through(function (buf, enc, next) {
   const hook = `
     const error = console.error;
     console.error = function(warning, ...args) {
@@ -19,7 +19,11 @@ const consoleAppendfy = () => through(function (buf, enc, next) {
       error.apply(console, [warning, ...args]);
     };
   `;
-  this.push(hook + buf.toString('utf8'));
+  if (/\.spec\.js$/.test(file)) {
+    this.push(hook + buf.toString('utf8'));
+  } else {
+    this.push(buf.toString('utf8'));
+  }
   next();
 });
 

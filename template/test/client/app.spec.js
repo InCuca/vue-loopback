@@ -1,4 +1,7 @@
 import Vue from 'vue';
+{{#extended}}
+import Vuex from 'vuex';
+{{/extended}}
 import App from '@/App.vue';
 
 describe('App.vue', () => {
@@ -10,11 +13,24 @@ describe('App.vue', () => {
   {{/extended}}
 
   beforeEach((done) => {
+    {{#extended}}
+    Vue.use(Vuex);
+    {{/extended}}
     Constructor = Vue.extend(App);
     vm = new Constructor({
       mounted: () => done(),
       {{#extended}}
       components: {routerView},
+      store: new Vuex.Store({
+        modules: {
+          async: {
+            namespaced: true,
+            actions: {
+              syncLoopback() {},
+            },
+          },
+        },
+      }),
       {{/extended}}
     });
     vm.$mount();
