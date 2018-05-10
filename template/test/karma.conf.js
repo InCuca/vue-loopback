@@ -9,7 +9,7 @@ import {customSass} from '../gulp-tasks/compilers';
 const cssBundleFile = tmp.fileSync();
 
 // Just hook window.console to throw vue warn
-const consoleAppendfy = file => through(function (buf, enc, next) {
+const consoleAppendfy = file => through(function(buf, enc, next) {
   const hook = `
     const error = console.error;
     console.error = function(warning, ...args) {
