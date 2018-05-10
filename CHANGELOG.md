@@ -1,3 +1,24 @@
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/InCuca/vue-loopback/compare/4.0.1...4.1.0) (2018-05-10)
+
+
+### Bug Fixes
+
+* **App:** only dispatch on extended ([f45a002](https://github.com/InCuca/vue-loopback/commit/f45a002))
+* **karma:** fix App errors and consoleAppendfy ([1ef9df4](https://github.com/InCuca/vue-loopback/commit/1ef9df4))
+* **karma:** throws when vue warns ([7907f28](https://github.com/InCuca/vue-loopback/commit/7907f28))
+* **release-it:** fix buildCommand ([655954a](https://github.com/InCuca/vue-loopback/commit/655954a))
+* **template:** fix lint errors ([3ed71f8](https://github.com/InCuca/vue-loopback/commit/3ed71f8))
+
+
+### Features
+
+* **Account:** add declaration tests and loopback-chai support ([903d1ef](https://github.com/InCuca/vue-loopback/commit/903d1ef))
+* **gulp:** add optional -t parameter to test files ([08e5ece](https://github.com/InCuca/vue-loopback/commit/08e5ece))
+* **project:** add release-it support ([eaf6f1c](https://github.com/InCuca/vue-loopback/commit/eaf6f1c))
+
+
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/InCuca/vue-loopback/compare/4.0.0...4.0.1) (2018-04-27)
 
