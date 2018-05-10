@@ -20,6 +20,10 @@ describe('Account', () => {
     app.close();
   });
 
+  it('has been correctly declared', () => {
+    expect(Account).to.inherits(app.models.User);
+  });
+
   it('should send reset email to test user', () => request(app)
     .post('/api/Accounts/reset')
     .send({email})
