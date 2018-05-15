@@ -1,3 +1,21 @@
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/InCuca/vue-loopback/compare/v4.1.0...v4.1.1) (2018-05-15)
+
+
+### Bug Fixes
+
+* **App:** fix lint error ([5cc2c97](https://github.com/InCuca/vue-loopback/commit/5cc2c97))
+* **project:** fix lint errors ([04d852a](https://github.com/InCuca/vue-loopback/commit/04d852a))
+* **template:** fix lint errors ([ea1c31e](https://github.com/InCuca/vue-loopback/commit/ea1c31e))
+* **template:** fix package lint command ([34b3a0b](https://github.com/InCuca/vue-loopback/commit/34b3a0b))
+
+
+### Features
+
+* **App:** add some style to not extended App ([9f8d380](https://github.com/InCuca/vue-loopback/commit/9f8d380))
+
+
+
 <a name="4.1.0"></a>
 # [4.1.0](https://github.com/InCuca/vue-loopback/compare/4.0.1...4.1.0) (2018-05-10)
 
