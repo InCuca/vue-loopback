@@ -1,8 +1,8 @@
 <template lang="html">
   {{#extended}}
-    <router-view id="app"></router-view>
+  <router-view id="app" />
   {{else}}
-    <h1>\{{ hello }}</h1>
+  <h1>\{{ hello }}</h1>
   {{/extended}}
 </template>
 
@@ -17,9 +17,9 @@ export default {
   created() {
     // Boot Application
     this.$store.dispatch('async/syncLoopback');
-  }
+  },
   {{/extended}}
-}
+};
 </script>
 
 <style {{#extended}}lang="scss"{{else}}lang="css"{{/extended}}>

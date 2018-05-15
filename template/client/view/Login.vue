@@ -10,33 +10,33 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input
+              id="email"
+              v-model="email"
               type="email"
               class="form-control"
-              id="email"
               aria-describedby="emailHelp"
               placeholder="Insert your email"
-              v-model="email"
               required>
           </div>
           <div class="form-group">
             <label for="senha">Password</label>
             <input
+              id="senha"
+              v-model="password"
               type="password"
               class="form-control"
-              id="senha"
               placeholder="Insert your password"
-              v-model="password"
               required>
           </div>
           <div
+            v-if="error"
             class="alert alert-danger"
-            role="alert"
-            v-if="error">\{{ error.message }}</div>
+            role="alert">\{{ error.message }}</div>
           <div class="flex">
             <a
               class="link"
-              @click.prevent="$refs.forgotPassword.show()"
-              href="#">
+              href="#"
+              @click.prevent="$refs.forgotPassword.show()">
               Forgot your password?
             </a>
             <button
@@ -73,13 +73,13 @@
               \{{ recoverError.message }}
             </b-alert>
             <input
+              ref="recoverEmail"
+              v-model="recoverEmail"
+              required
               type="email"
               class="form-control"
-              ref="recoverEmail"
               placeholder="Insert your email"
-              v-model="recoverEmail"
-              @keydown.enter="sendRecoverEmail"
-              required>
+              @keydown.enter="sendRecoverEmail">
           </form>
         </b-modal>
 
@@ -136,7 +136,6 @@ export default {
     },
     sendRecoverEmail() {
       const form = this.$refs.forgotPasswordForm;
-      const email = this.$refs.recoverEmail;
 
       this.recoverError = null;
       if (form.checkValidity()) {
@@ -154,7 +153,9 @@ export default {
             this.recoverError = err;
           });
       } else {
-        this.recoverError = {message: 'Please, check the inserted email and try again'};
+        this.recoverError = {
+          message: 'Please, check the inserted email and try again',
+        };
       }
     },
   },

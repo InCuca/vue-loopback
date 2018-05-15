@@ -9,10 +9,9 @@
 </template>
 
 <script>
-import HeaderContainer from './containers/HeaderContainer.vue';
-
 // HelloWorld
 import HelloWorld from '@/components/HelloWorld/HelloWorld.vue';
+import HeaderContainer from './containers/HeaderContainer.vue';
 
 export default {
   components: {

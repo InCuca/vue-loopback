@@ -14,8 +14,8 @@
       </b-navbar-brand>
 
       <b-collapse
-        is-nav
-        id="nav_collapse">
+        id="nav_collapse"
+        is-nav>
         <b-navbar-nav class="ml-auto">
           <b-nav-item :to="{name: 'profile'}">CHANGE PASSWORD</b-nav-item>
           <b-nav-item @click="onLogoutClick">LOG OUT</b-nav-item>

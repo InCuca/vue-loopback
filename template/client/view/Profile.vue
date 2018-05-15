@@ -11,37 +11,37 @@
             class="form-group">
             <label for="senha">Old password</label>
             <input
+              id="senha"
+              v-model="password"
               type="password"
               class="form-control"
-              id="senha"
               placeholder="Insert the old password"
-              v-model="password"
               required>
           </div>
           <div class="form-group">
             <label for="senha-nova1">New password</label>
             <input
+              id="senha-nova1"
+              v-model="passwordNew1"
               type="password"
               class="form-control"
-              id="senha-nova1"
               placeholder="Insert the new password"
-              v-model="passwordNew1"
               required>
           </div>
           <div class="form-group">
             <label for="senha-nova2">Confirmation</label>
             <input
+              id="senha-nova2"
+              v-model="passwordNew2"
               type="password"
               class="form-control"
-              id="senha-nova2"
               placeholder="Confirm the new password"
-              v-model="passwordNew2"
               required>
           </div>
           <div
+            v-if="error"
             class="alert alert-danger"
-            role="alert"
-            v-if="error">\{{ error.message }}</div>
+            role="alert">\{{ error.message }}</div>
           <div class="flex">
             <button
               class="btn btn-danger"
@@ -74,6 +74,7 @@
 </template>
 
 <script>
+/* eslint-disable camelcase */
 export default {
   props: {
     access_token: {
