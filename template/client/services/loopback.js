@@ -55,8 +55,8 @@ http.find = (endpoint, filter) => http.get(endpoint, {params: {filter}});
 /* Response Interceptors */
 const interceptResErrors = (err) => {
   // console.log('error', err);
-  setLoading(false, err.response.config.uid);
   try {
+    setLoading(false, err.config.uid || err.response.config.uid);
     err = Object.assign(new Error(), err.response.data.error);
   } catch (e) {
     // Will return err if something goes wrong
