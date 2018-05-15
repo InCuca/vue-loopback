@@ -24,4 +24,5 @@ export default {
 
 <style {{#extended}}lang="scss"{{else}}lang="css"{{/extended}}>
   {{#extended}}@import "style/app.scss";{{/extended}}
+  {{#unless extended}}h1 { font-size: 2rem; }{{/unless}}
 </style>
