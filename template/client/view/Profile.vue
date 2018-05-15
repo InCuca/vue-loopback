@@ -6,48 +6,59 @@
       </div>
       <div class="card-block p-4">
         <form @submit="onSubmit">
-          <div v-if="access_token ===  null" class="form-group">
+          <div
+            v-if="access_token === null"
+            class="form-group">
             <label for="senha">Old password</label>
-            <input type="password"
-                   class="form-control"
-                   id="senha"
-                   placeholder="Insert the old password"
-                   v-model="password"
-                   required>
+            <input
+              type="password"
+              class="form-control"
+              id="senha"
+              placeholder="Insert the old password"
+              v-model="password"
+              required>
           </div>
           <div class="form-group">
             <label for="senha-nova1">New password</label>
-            <input type="password"
-                   class="form-control"
-                   id="senha-nova1"
-                   placeholder="Insert the new password"
-                   v-model="passwordNew1"
-                   required>
+            <input
+              type="password"
+              class="form-control"
+              id="senha-nova1"
+              placeholder="Insert the new password"
+              v-model="passwordNew1"
+              required>
           </div>
           <div class="form-group">
             <label for="senha-nova2">Confirmation</label>
-            <input type="password"
-                   class="form-control"
-                   id="senha-nova2"
-                   placeholder="Confirm the new password"
-                   v-model="passwordNew2"
-                   required>
+            <input
+              type="password"
+              class="form-control"
+              id="senha-nova2"
+              placeholder="Confirm the new password"
+              v-model="passwordNew2"
+              required>
           </div>
-          <div class="alert alert-danger"
-               role="alert"
-               v-if="error">\{{error.message}}</div>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            v-if="error">\{{ error.message }}</div>
           <div class="flex">
             <button
-                    class="btn btn-danger"
-                    @click="onCancel">
-                    <i class="fa fa-ban"></i>
-                    CANCEL
+              class="btn btn-danger"
+              @click="onCancel">
+              <i class="fa fa-ban"/>
+              CANCEL
             </button>
-            <button type="submit"
-                    class="btn btn-success">
-                    <i v-if="loading" class="fa fa-spinner"></i>
-                    <i v-else class="fa fa-check"></i>
-                    SAVE
+            <button
+              type="submit"
+              class="btn btn-success">
+              <i
+                v-if="loading"
+                class="fa fa-spinner"/>
+              <i
+                v-else
+                class="fa fa-check"/>
+              SAVE
             </button>
           </div>
         </form>
@@ -67,27 +78,27 @@ export default {
   props: {
     access_token: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
       password: null,
       passwordNew1: null,
       passwordNew2: null,
       error: null,
-      loading: false
-    }
+      loading: false,
+    };
   },
   methods: {
-    onSubmit (evt) {
+    onSubmit(evt) {
       evt.preventDefault();
-      this.loading = true
-      this.error = null
+      this.loading = true;
+      this.error = null;
 
-      if(this.passwordNew1 !== this.passwordNew2) {
-        this.loading = false
-        this.error = new Error('The password does not match, please try again')
+      if (this.passwordNew1 !== this.passwordNew2) {
+        this.loading = false;
+        this.error = new Error('The password does not match, please try again');
         return;
       }
 
@@ -96,26 +107,26 @@ export default {
         .dispatch('auth/resetPassword', {
           oldPassword: this.password,
           newPassword: this.passwordNew1,
-          access_token: this.access_token
+          access_token: this.access_token,
         })
         .then(() => {
-          this.loading = false
-          this.$refs.resetSuccess.show()
+          this.loading = false;
+          this.$refs.resetSuccess.show();
         })
-        .catch(err => {
-          this.error = err
-          this.loading = false
-        })
+        .catch((err) => {
+          this.error = err;
+          this.loading = false;
+        });
     },
-    onCancel (evt) {
+    onCancel(evt) {
       evt.preventDefault();
       this.$router.go(-1);
     },
     onModalOk() {
       this.$router.go(-1);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

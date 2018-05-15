@@ -1,13 +1,21 @@
 <template lang="html">
   <div class="header-container">
-    <b-navbar variant="dark" type="dark" toggleable toggle-breakpoint="sm">
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-navbar
+      variant="dark"
+      type="dark"
+      toggleable
+      toggle-breakpoint="sm">
+      <b-navbar-toggle target="nav_collapse"/>
 
-      <b-navbar-brand :to="{name: 'home'}" class="logo">
-        <img src="../static/images/logo.png" />
+      <b-navbar-brand
+        :to="{name: 'home'}"
+        class="logo">
+        <img src="../static/images/logo.png" >
       </b-navbar-brand>
 
-      <b-collapse is-nav id="nav_collapse">
+      <b-collapse
+        is-nav
+        id="nav_collapse">
         <b-navbar-nav class="ml-auto">
           <b-nav-item :to="{name: 'profile'}">CHANGE PASSWORD</b-nav-item>
           <b-nav-item @click="onLogoutClick">LOG OUT</b-nav-item>
@@ -32,9 +40,9 @@ export default {
         .$store
         .dispatch('auth/signOut')
         .catch(this.notifyError);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="css">

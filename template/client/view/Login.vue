@@ -9,36 +9,45 @@
         <form @submit="onSubmit">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email"
-                   class="form-control"
-                   id="email"
-                   aria-describedby="emailHelp"
-                   placeholder="Insert your email"
-                   v-model="email"
-                   required>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              placeholder="Insert your email"
+              v-model="email"
+              required>
           </div>
           <div class="form-group">
             <label for="senha">Password</label>
-            <input type="password"
-                   class="form-control"
-                   id="senha"
-                   placeholder="Insert your password"
-                   v-model="password"
-                   required>
+            <input
+              type="password"
+              class="form-control"
+              id="senha"
+              placeholder="Insert your password"
+              v-model="password"
+              required>
           </div>
-          <div class="alert alert-danger"
-               role="alert"
-               v-if="error">\{{error.message}}</div>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            v-if="error">\{{ error.message }}</div>
           <div class="flex">
-            <a class="link"
+            <a
+              class="link"
               @click.prevent="$refs.forgotPassword.show()"
               href="#">
               Forgot your password?
             </a>
-            <button type="submit"
-                    class="btn btn-success">
-              <i v-if="loading" class="fa fa-spinner"></i>
-              <i v-else class="fa fa-check"></i>
+            <button
+              type="submit"
+              class="btn btn-success">
+              <i
+                v-if="loading"
+                class="fa fa-spinner"/>
+              <i
+                v-else
+                class="fa fa-check"/>
               SIGN IN
             </button>
           </div>
@@ -46,13 +55,17 @@
 
         <!-- Forgot Password -->
         <b-modal
-            ref="forgotPassword"
-            title="Recover the password"
-            size="sm"
-            @ok="onModalOk"
-            @shown="onModalShown">
-          <form ref="forgotPasswordForm" class="forgot-form">
-            <i v-if="loading" class="fa fa-spinner"></i>
+          ref="forgotPassword"
+          title="Recover the password"
+          size="sm"
+          @ok="onModalOk"
+          @shown="onModalShown">
+          <form
+            ref="forgotPasswordForm"
+            class="forgot-form">
+            <i
+              v-if="loading"
+              class="fa fa-spinner"/>
             <b-alert
               v-if="recoverError"
               :show="recoverError !== null"
@@ -66,7 +79,7 @@
               placeholder="Insert your email"
               v-model="recoverEmail"
               @keydown.enter="sendRecoverEmail"
-              required/>
+              required>
           </form>
         </b-modal>
 
@@ -82,7 +95,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       email: null,
       password: null,
@@ -90,27 +103,27 @@ export default {
       recoverError: null,
       recoverSuccess: null,
       recoverEmail: null,
-      loading: false
-    }
+      loading: false,
+    };
   },
   methods: {
-    onSubmit (evt) {
-      evt.preventDefault()
-      this.loading = true
-      this.error = null
+    onSubmit(evt) {
+      evt.preventDefault();
+      this.loading = true;
+      this.error = null;
       this
         .$store
         .dispatch('auth/signIn', {
           email: this.email,
-          password: this.password
+          password: this.password,
         })
         .then(() => {
-          this.loading = false
+          this.loading = false;
         })
-        .catch(err => {
-          this.error = err
-          this.loading = false
-        })
+        .catch((err) => {
+          this.error = err;
+          this.loading = false;
+        });
     },
     onModalShown() {
       this.$refs.forgotPasswordForm.reset();
@@ -136,16 +149,16 @@ export default {
             this.$refs.forgotPassword.hide();
             this.$refs.recoverSuccess.show();
           })
-          .catch(err => {
+          .catch((err) => {
             this.loading = false;
             this.recoverError = err;
           });
       } else {
         this.recoverError = {message: 'Please, check the inserted email and try again'};
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

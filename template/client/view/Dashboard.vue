@@ -19,7 +19,7 @@ export default {
     HeaderContainer,
     HelloWorld,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
