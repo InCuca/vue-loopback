@@ -6,7 +6,7 @@
     "node": ">=8.9.4"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "npx eslint --ext vue,js .",
     "dev": "gulp serve",
     "build": "gulp build --production",
     "afterbuild": "cd build && npm install --production",
