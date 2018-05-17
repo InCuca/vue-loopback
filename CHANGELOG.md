@@ -1,3 +1,19 @@
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/InCuca/vue-loopback/compare/v4.1.1...v4.2.0) (2018-05-17)
+
+
+### Bug Fixes
+
+* **loopback:** fix lint errors ([ea23c48](https://github.com/InCuca/vue-loopback/commit/ea23c48))
+
+
+### Features
+
+* **gulp-tasks:** add support to es6 modules, fixes [#7](https://github.com/InCuca/vue-loopback/issues/7) ([0c70326](https://github.com/InCuca/vue-loopback/commit/0c70326))
+* **loopback:** add aditional response check in interceptResErrors ([66d1b59](https://github.com/InCuca/vue-loopback/commit/66d1b59))
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/InCuca/vue-loopback/compare/v4.1.0...v4.1.1) (2018-05-15)
 
