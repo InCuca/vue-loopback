@@ -1,5 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import path from 'path';
+import pkg from '../package.json';
+
+// true if this template was generated with extended option
+export const extended = pkg.extended || false;
 
 export const dirs = {};
 dirs.root = path.resolve(__dirname, '../');

@@ -78,6 +78,7 @@
     "loopback-chai": "^2.3.0",
     "mocha": "^3.4.2",
     "sinon": "^2.3.8",
+    "tfilter": "^1.0.1",
     "through2": "^2.0.3",
     "tmp": "0.0.33",
     "vinyl-buffer": "^1.0.0",
@@ -96,5 +97,7 @@
     "url": ""
   },
   "license": "UNLICENSED",
-  "description": "{{ description }}"
+  "description": "{{ description }}"{{#extended}},
+  "extended": true
+  {{/extended}}
 }
