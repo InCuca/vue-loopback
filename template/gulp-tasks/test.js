@@ -12,6 +12,7 @@ gulp.task(
       .pipe(mocha({
         compilers: 'js:babel-core/register',
         require: path.resolve(dirs.test, 'mocha.conf.js'),
+        exit: true,
       }))
 );
 
