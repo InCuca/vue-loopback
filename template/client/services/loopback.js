@@ -83,7 +83,7 @@ addTokenFromLocalStorage(http);
 /* Request Interceptors */
 const interceptReqErrors = err => Promise.reject(err);
 const interceptRequest = (config) => {
-  config.uid = setLoading(true);
+  config.uid = setLoading(true, config.uid);
   // console.log('request', config);
   return config;
 };
