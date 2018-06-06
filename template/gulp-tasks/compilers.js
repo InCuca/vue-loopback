@@ -17,7 +17,7 @@ export function customSass(content, callback, compiler, filePath) {
   const relativePath = path.relative(
     path.dirname(filePath),
     path.resolve(dirs.srcClient, 'style/global.scss')
-  );
+  ).replace(/\\/g, '/'); // Replace backslashes with forward slashes (windows)
 
   // Global SCSS
   //
