@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "npx eslint --ext vue,js .",
     "dev": "gulp serve",
-    "build": "gulp build --production",
+    "build": "gulp build --production && npm run afterbuild",
     "afterbuild": "cd build && npm install --production",
     "test": "gulp test",
     "test:server": "gulp test:server",
