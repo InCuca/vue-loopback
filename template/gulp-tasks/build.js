@@ -15,15 +15,6 @@ import {argv} from 'yargs';
 import {dirs, extended} from './config';
 import {customSass} from './compilers';
 
-gulp.task('build:test', () => gulp.src([
-  path.resolve(dirs.test, '**/*.test.js'),
-  path.resolve(dirs.test, 'config.js'),
-])
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(dirs.buildTest)));
-
 gulp.task('build:client', ['copy:client', 'copy:config:server'], () => {
   // Node modules to be included in babel transpilation
   //  Use this with ES6 modules for example
@@ -148,7 +139,6 @@ gulp.task('build:index', () => {
 });
 
 gulp.task('build', [
-  'build:test',
   'build:client',
   'build:common',
   'build:server',
