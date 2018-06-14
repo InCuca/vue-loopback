@@ -1,4 +1,5 @@
 module.exports = {
+  preset: 'jest-preset-loopback',
   moduleFileExtensions: [
     'js',
     'json',
