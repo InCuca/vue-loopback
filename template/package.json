@@ -63,6 +63,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-connect": "^5.0.0",
     "gulp-sourcemaps": "^2.6.0",
+    "jest": "^22.4.4",
     "tfilter": "^1.0.1",
     "through2": "^2.0.3",
     "tmp": "0.0.33",
