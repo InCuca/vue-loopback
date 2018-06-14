@@ -8,5 +8,5 @@ module.exports = {
     "^.+\\.js$": "babel-jest",
     "^.+\\.vue$": "vue-jest"
   },
-  setupTestFrameworkScriptFile: "./jest.config.js"
+  setupTestFrameworkScriptFile: "./jest.plugins.js"
 }
