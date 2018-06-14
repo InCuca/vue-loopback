@@ -71,6 +71,7 @@
     "tmp": "0.0.33",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
+    "vue-jest": "^2.6.0",
     "vueify": "^9.4.1",
     "yargs": "^10.0.3",
     "babel-plugin-root-import": "^5.1.0",
