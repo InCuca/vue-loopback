@@ -40,14 +40,14 @@ describe('App.vue', () => {
 
   {{#extended}}
   it('should render router component', () => {
-    expect(vm.$el.innerHTML).to.equal('mocked component');
-    expect(vm.$el.getAttribute('id')).to.equal('app');
+    expect(vm.$el.innerHTML).toEqual('mocked component');
+    expect(vm.$el.getAttribute('id')).toEqual('app');
   });
   {{else}}
   it('should render correct content', () => {
     const newVm = new Constructor().$mount();
     return Vue.nextTick().then(() => {
-      expect(newVm.$el.innerHTML).to.equal('Hello World!');
+      expect(newVm.$el.innerHTML).toEqual('Hello World!');
     });
   });
   {{/extended}}

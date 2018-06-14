@@ -7,7 +7,7 @@ describe('HelloWorld.vue', () => {
   it('should render correct content', () => {
     const vm = new Constructor().$mount();
     return Vue.nextTick().then(() => {
-      expect(vm.$el.innerHTML).to.include(
+      expect(vm.$el.innerHTML).toContain(
         'Hello World! This content is restricted.'
       );
     });

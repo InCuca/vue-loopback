@@ -21,11 +21,11 @@ describe('Account', () => {
   });
 
   it('has been correctly declared', () => {
-    expect(Account).to.inherits(app.models.User);
+    expect(Account).toInherits(app.models.User);
   });
 
   it('should send reset email to test user', () => request(app)
     .post('/api/Accounts/reset')
     .send({email})
-    .then(res => expect(res).to.have.status(204))).slow(5000).timeout(30000);
+    .then(res => expect(res).to.status(204))).slow(5000).timeout(30000);
 });
