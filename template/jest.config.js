@@ -1,12 +1,12 @@
 module.exports = {
   moduleFileExtensions: [
-    "js",
-    "json",
-    "vue"
+    'js',
+    'json',
+    'vue',
   ],
   transform: {
-    "^.+\\.js$": "babel-jest",
-    "^.+\\.vue$": "vue-jest"
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.vue$': 'vue-jest',
   },
-  setupTestFrameworkScriptFile: "./jest.plugins.js"
-}
+  setupTestFrameworkScriptFile: './jest.plugins.js',
+};

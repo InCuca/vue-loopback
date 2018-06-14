@@ -1,3 +1,3 @@
 require('jest-plugins')([
-  'loopback-jest'
-])
+  'loopback-jest',
+]);

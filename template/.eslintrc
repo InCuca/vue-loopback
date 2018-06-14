@@ -22,7 +22,9 @@
         "devDependencies": [
           "test/**/*.js",
           "test/**/*.js",
-          "gulp-tasks/**/*.js"
+          "gulp-tasks/**/*.js",
+          "jest.config.js",
+          "jest.plugins.js"
         ]
       }
     ],
