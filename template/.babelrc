@@ -6,13 +6,15 @@
             "> 1%",
             "last 2 versions",
             "not ie <= 8"
-          ]
+          ],
+          "node": "8"
         }
-      }],
-    "stage-2"
+      }]
   ],
   "plugins": [
-    ["babel-plugin-root-import", [
+    [
+      "babel-plugin-root-import",
+      [
         {
           "rootPathPrefix": "~",
           "rootPathSuffix": "."
@@ -21,6 +23,14 @@
           "rootPathPrefix": "@",
           "rootPathSuffix": "client"
         }
-    ]]
+      ]
+    ],
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
   ]
 }
