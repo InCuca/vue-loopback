@@ -2,5 +2,4 @@
 import './serve';
 import './default';
 import './build';
-import './test';
 import './copy';
