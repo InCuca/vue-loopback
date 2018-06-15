@@ -35,7 +35,6 @@ module.exports = {
     'server/initial-data/**/*': 'extended',
     'server/models/**/*': 'extended',
     'test/client/components/**/*': 'extended',
-    'test/server/mixins/**/*': 'extended',
     'test/server/account.spec.js': 'extended',
   },
   complete(data, {logger}) {

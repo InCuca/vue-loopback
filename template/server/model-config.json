@@ -9,6 +9,9 @@
     "mixins": [
       "loopback/common/mixins",
       "loopback/server/mixins",
+      {{#extended}}
+      "../node_modules/loopback-ds-timestamp-mixin",
+      {{/extended}}
       "../common/mixins",
       "./mixins"
     ]
