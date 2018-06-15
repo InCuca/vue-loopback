@@ -2,18 +2,20 @@
 import loopback from 'loopback';
 import boot from 'loopback-boot';
 import path from 'path';
+import request from 'supertest';
 {{#extended}}
 import initialAccount from '../../server/initial-data/maintenance-account.json';
 {{/extended}}
 
 describe('boot process', () => {
   let server;
-  const options = {
-    appRootDir: path.resolve(__dirname, '../../server'),
-  };
   beforeEach((done) => {
     server = loopback();
-    boot(server, options, done);
+    boot(
+      server,
+      path.resolve(__dirname, '../../server'),
+      done
+    );
   });
 
   afterEach((done) => {
@@ -25,7 +27,7 @@ describe('boot process', () => {
     it('should return server status by root.js', (done) => {
       const conn = server.listen(8000, () => {
         request(server).get('/api').then((res) => {
-          expect(res).to.status(200);
+          expect(res.statusCode).toBe(200);
           expect(res.body).toHavePropertyOfType('started');
           expect(res.body).toHavePropertyOfType('uptime');
           conn.close(done);
@@ -63,18 +65,18 @@ describe('boot process', () => {
 
     it('should create a default admin user', () => {
       return server.models.Account.find().then((res) => {
-        expect(res).to.lengthOf(1);
+        expect(res).toHaveLength(1);
         expect(res[0]).toHavePropertyOfType('createdAt');
         expect(res[0]).toHavePropertyOfType('updatedAt');
         expect(res[0].id).toEqual(1);
         expect(res[0].email).toEqual(initialAccount.email);
-        expect(res[0].password).toEqual('string');
+        expect(res[0].password).toBeDefined();
       });
     });
 
     it('should create a default admin role', () => {
       return server.models.Role.find().then((res) => {
-        expect(res).to.lengthOf(1);
+        expect(res).toHaveLength(1);
         expect(res[0]).toHavePropertyOfType('created');
         expect(res[0]).toHavePropertyOfType('modified');
         expect(res[0].id).toEqual(1);
@@ -85,7 +87,7 @@ describe('boot process', () => {
     it('should create RoleMapping entry for admin', () => {
       const RoleMapping = server.models.RoleMapping;
       return RoleMapping.find().then((res) => {
-        expect(res).to.lengthOf(1);
+        expect(res).toHaveLength(1);
         expect(res[0].id).toEqual(1);
         expect(res[0].roleId).toEqual(1);
         expect(res[0].principalId).toEqual(1);
