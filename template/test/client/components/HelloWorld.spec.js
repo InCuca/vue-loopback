@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import {mount} from 'vue-test-utils';
 import HelloWorld from '@/components/HelloWorld/HelloWorld.vue';
 
 describe('HelloWorld.vue', () => {
