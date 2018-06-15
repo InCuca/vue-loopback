@@ -1,15 +1,12 @@
-import Vue from 'vue';
+import { mount } from 'vue-test-utils';
 import HelloWorld from '@/components/HelloWorld/HelloWorld.vue';
 
 describe('HelloWorld.vue', () => {
-  const Constructor = Vue.extend(HelloWorld);
+  const wrapper = mount(HelloWorld);
 
   it('should render correct content', () => {
-    const vm = new Constructor().$mount();
-    return Vue.nextTick().then(() => {
-      expect(vm.$el.innerHTML).toContain(
-        'Hello World! This content is restricted.'
-      );
-    });
+    expect(wrapper.html()).toContain(
+      'Hello World! This content is restricted.'
+    );
   });
 });
