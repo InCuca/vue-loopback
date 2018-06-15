@@ -11,11 +11,12 @@ describe('boot process', () => {
   let server;
   beforeEach((done) => {
     server = loopback();
-    boot(
-      server,
-      path.resolve(__dirname, '../../server'),
-      done
-    );
+    boot(server, path.resolve(__dirname, '../../server'), () => {
+      {{#extended}}
+      server.loopback.modelBuilder.mixins.define('TimeStamp', TimeStamp);
+      {{/extended}}
+      done();
+    });
   });
 
   afterEach((done) => {
