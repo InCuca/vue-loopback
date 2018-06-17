@@ -5,6 +5,7 @@ import path from 'path';
 import request from 'supertest';
 {{#extended}}
 import initialAccount from '../../server/initial-data/maintenance-account.json';
+import TimeStamp from 'loopback-ds-timestamp-mixin';
 {{/extended}}
 
 describe('boot process', () => {
