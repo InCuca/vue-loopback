@@ -5,19 +5,17 @@ import path from 'path';
 import request from 'supertest';
 {{#extended}}
 import initialAccount from '../../server/initial-data/maintenance-account.json';
-import TimeStamp from 'loopback-ds-timestamp-mixin';
 {{/extended}}
 
 describe('boot process', () => {
   let server;
+  const options = {
+    appRootDir: path.resolve(__dirname, '../../server'),
+    scriptExtensions: ['.js', '.json', '.node', '.ejs'],
+  }
   beforeEach((done) => {
     server = loopback();
-    boot(server, path.resolve(__dirname, '../../server'), () => {
-      {{#extended}}
-      server.loopback.modelBuilder.mixins.define('TimeStamp', TimeStamp);
-      {{/extended}}
-      done();
-    });
+    boot(server, options, done);
   });
 
   afterEach((done) => {
@@ -30,8 +28,8 @@ describe('boot process', () => {
       const conn = server.listen(8000, () => {
         request(server).get('/api').then((res) => {
           expect(res.statusCode).toBe(200);
-          expect(res.body).toHavePropertyOfType('started');
-          expect(res.body).toHavePropertyOfType('uptime');
+          expect(res.body).toHaveProperty('started');
+          expect(res.body).toHaveProperty('uptime');
           conn.close(done);
         });
       });
@@ -46,7 +44,7 @@ describe('boot process', () => {
 
   describe('email configuration', () => {
     it('should have Email model', () => {
-      expect(server.models).toHavePropertyOfType('Email');
+      expect(server.models).toHaveProperty('Email');
     });
 
     it('Email model should send email', (done) => {
@@ -62,14 +60,14 @@ describe('boot process', () => {
 
   describe('create-admin.js', () => {
     it('should have Account model', () => {
-      expect(server.models).toHavePropertyOfType('Account');
+      expect(server.models).toHaveProperty('Account');
     });
 
     it('should create a default admin user', () => {
       return server.models.Account.find().then((res) => {
         expect(res).toHaveLength(1);
-        expect(res[0]).toHavePropertyOfType('createdAt');
-        expect(res[0]).toHavePropertyOfType('updatedAt');
+        expect(res[0]).toHaveProperty('createdAt');
+        expect(res[0]).toHaveProperty('updatedAt');
         expect(res[0].id).toEqual(1);
         expect(res[0].email).toEqual(initialAccount.email);
         expect(res[0].password).toBeDefined();
@@ -79,8 +77,8 @@ describe('boot process', () => {
     it('should create a default admin role', () => {
       return server.models.Role.find().then((res) => {
         expect(res).toHaveLength(1);
-        expect(res[0]).toHavePropertyOfType('created');
-        expect(res[0]).toHavePropertyOfType('modified');
+        expect(res[0]).toHaveProperty('created');
+        expect(res[0]).toHaveProperty('modified');
         expect(res[0].id).toEqual(1);
         expect(res[0].name).toEqual('admin');
       });
