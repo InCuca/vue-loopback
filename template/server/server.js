@@ -3,6 +3,12 @@ import boot from 'loopback-boot';
 
 const app = loopback();
 
+const options = {
+  appRootDir: __dirname,
+  // File Extensions for jest (strongloop/loopback#3204)
+  scriptExtensions: ['.js', '.json', '.node', '.ejs'],
+}
+
 let httpServer;
 
 app.start = function() {
@@ -25,7 +31,7 @@ app.close = function() {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, (err) => {
+boot(app, options, (err) => {
   if (err) throw err;
 
   // start the server if `$ node server.js`
