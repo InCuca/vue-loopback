@@ -12,7 +12,7 @@ describe('boot process', () => {
   const options = {
     appRootDir: path.resolve(__dirname, '../../server'),
     scriptExtensions: ['.js', '.json', '.node', '.ejs'],
-  }
+  };
   beforeEach((done) => {
     server = loopback();
     boot(server, options, done);

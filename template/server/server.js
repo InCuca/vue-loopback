@@ -7,7 +7,7 @@ const options = {
   appRootDir: __dirname,
   // File Extensions for jest (strongloop/loopback#3204)
   scriptExtensions: ['.js', '.json', '.node', '.ejs'],
-}
+};
 
 let httpServer;
 
