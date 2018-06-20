@@ -95,6 +95,13 @@
 
 <script>
 export default {
+  name: 'Login',
+  props: {
+    sessionError: {
+      type: Error,
+      default: null,
+    },
+  },
   data() {
     return {
       email: null,
@@ -105,6 +112,14 @@ export default {
       recoverEmail: null,
       loading: false,
     };
+  },
+  watch: {
+    sessionError: {
+      handler(err) {
+        this.error = err;
+      },
+      immediate: true,
+    },
   },
   methods: {
     onSubmit(evt) {
@@ -118,6 +133,7 @@ export default {
           password: this.password,
         })
         .then(() => {
+          this.$router.push({name: 'agenda'});
           this.loading = false;
         })
         .catch((err) => {

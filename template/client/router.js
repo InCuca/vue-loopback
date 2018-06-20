@@ -23,6 +23,7 @@ const router = new VueRouter({
       path: '/login',
       name: 'login',
       component: Login,
+      props: true,
     }, {
       path: '/profile',
       name: 'profile',

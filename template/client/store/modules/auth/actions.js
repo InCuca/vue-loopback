@@ -4,19 +4,22 @@ import router from '@/router';
 /**
  * Sync loopback token with current state
 */
-export function syncToken({commit}) {
+export function syncToken({commit, dispatch}) {
   if (loopback.token) {
     commit('setAccessToken', loopback.token);
+    return dispatch(
+      'loadAccount',
+      loopback.token.userId,
+    ).catch((err) => {
+      commit('setAccessToken', null);
+      return err;
+    });
   }
+  return Promise.resolve();
 }
 
-/**
- * Sync router for auth
- */
-export function syncRouter({state, dispatch}, myRouter) {
-  dispatch('syncToken');
-
-  myRouter.beforeEach((to, from, next) => {
+function evaluateRoute(state, to, from, next) {
+  return (sessionError) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
       // this route requires auth, check if logged in
       // if not, redirect to login page (except when it's profile route and
@@ -26,14 +29,27 @@ export function syncRouter({state, dispatch}, myRouter) {
       } else if (!state.access_token) {
         next({
           name: 'login',
+          params: {
+            sessionError,
+          },
         });
       } else {
-        dispatch('loadAccount', state.access_token.userId)
-          .then(next);
+        next();
       }
     } else {
       next(); // make sure to always call next()!
     }
+  };
+}
+
+/**
+ * Sync router for auth
+ */
+export function syncRouter({state, dispatch}, myRouter) {
+  myRouter.beforeEach((to, from, next) => {
+    dispatch('syncToken').then(
+      evaluateRoute(state, to, from, next)
+    );
   });
 }
 
@@ -60,7 +76,6 @@ export function signIn({commit, dispatch, state}, {email, password}) {
         loopback.removeToken();
       }
 
-      router.push({name: 'dashboard'});
       return dispatch('loadAccount', state.access_token.userId);
     });
 }
@@ -94,9 +109,9 @@ export function loadAccount({commit}, userId) {
   return loopback
     .get(`/Accounts/${userId}`)
     .then(acc => commit('setAccount', acc))
-    .catch(() => {
+    .catch((err) => {
       loopback.removeToken();
-      router.push({name: 'login'});
+      return Promise.reject(err);
     });
 }
 
