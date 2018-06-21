@@ -1,5 +1,13 @@
-import {host, restApiRoot, port} from '~/server/config.json';
 import axios from 'axios';
+import {host, restApiRoot, port} from '~/server/config.json';
+import {DateString} from 'loopback';
+
+DateString.parse = function(dateString) {
+  const date = dateString.when || dateString;
+  return new DateString(date);
+};
+
+export {DateString};
 
 const Storage = window.localStorage;
 
