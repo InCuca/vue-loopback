@@ -1,7 +1,5 @@
 /* eslint-disable arrow-body-style */
-import loopback from 'loopback';
-import boot from 'loopback-boot';
-import path from 'path';
+import createLoopback from './utils/create-loopback';
 import request from 'supertest';
 {{#extended}}
 import initialAccount from '../../server/initial-data/maintenance-account.json';
@@ -9,13 +7,11 @@ import initialAccount from '../../server/initial-data/maintenance-account.json';
 
 describe('boot process', () => {
   let server;
-  const options = {
-    appRootDir: path.resolve(__dirname, '../../server'),
-    scriptExtensions: ['.js', '.json', '.node', '.ejs'],
-  };
-  beforeEach((done) => {
-    server = loopback();
-    boot(server, options, done);
+
+  beforeEach(() => {
+    return createLoopback().then((s) => {
+      server = s;
+    });
   });
 
   afterEach((done) => {
