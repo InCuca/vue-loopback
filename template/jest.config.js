@@ -7,6 +7,10 @@ module.exports = {
   ],
   projects: [
     {
+      displayName: 'test helpers',
+      testMatch: ['<rootDir>/test/**/*.spec.js'],
+    },
+    {
       displayName: 'server',
       testMatch: [
         '<rootDir>/server/**/*.spec.js',
@@ -21,10 +25,6 @@ module.exports = {
         '^.+\\.js$': 'babel-jest',
       },
       setupTestFrameworkScriptFile: './jest.plugins.js',
-    },
-    {
-      displayName: 'test',
-      testMatch: ['<rootDir>/test/**/*.spec.js'],
     },
     {
       displayName: 'client',
