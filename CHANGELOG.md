@@ -1,3 +1,13 @@
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/InCuca/vue-loopback/compare/v5.0.0...v5.1.0) (2018-06-28)
+
+
+### Bug Fixes
+
+* **package:** fix test script ([1984f65](https://github.com/InCuca/vue-loopback/commit/1984f65))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/InCuca/vue-loopback/compare/v4.2.0...v5.0.0) (2018-06-28)
 
