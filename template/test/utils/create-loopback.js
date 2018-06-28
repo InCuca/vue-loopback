@@ -4,7 +4,7 @@ import boot from 'loopback-boot';
 
 export default function(options) {
   const defaultOptions = {
-    appRootDir: path.resolve(__dirname, '../../../server'),
+    appRootDir: path.resolve(__dirname, '../../server'),
     scriptExtensions: ['.js', '.json', '.node', '.ejs'],
   };
 

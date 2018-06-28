@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils';
-import HelloWorld from '@/components/HelloWorld/HelloWorld.vue';
+import HelloWorld from './HelloWorld.vue';
 
 describe('HelloWorld.vue', () => {
   const wrapper = mount(HelloWorld);

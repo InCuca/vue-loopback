@@ -7,7 +7,7 @@
 1. `client`: Vue client files
 2. `common`: Common client and server model files
 3. `server`: Loopback server files
-4. `test`: Unit test
+4. `test`: Testing helpers (do not place unit tests here, but as .spec.js files in client/common/server directories)
 
 ## Installation
 

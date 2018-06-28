@@ -20,7 +20,8 @@
       "error",
       {
         "devDependencies": [
-          "test/**/*.js",
+          "**/*.spec.js",
+          "__tests__/*.js",
           "test/**/*.js",
           "gulp-tasks/**/*.js",
           "jest.config.js",

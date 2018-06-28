@@ -1,11 +1,11 @@
 import request from 'supertest';
-import createLoopback from './utils/create-loopback';
+import createLoopback from '~/test/utils/create-loopback';
 
 describe('Account', () => {
   const email = '936ue5+4bnywbeje42pw@sharklasers.com';
   let server, testAccount, Account;
 
-  beforeEach(async() => {
+  beforeEach(asyn () => {
     server = await createLoopback();
     Account = server.models.Account;
     testAccount = await Account.create({

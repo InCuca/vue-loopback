@@ -90,12 +90,6 @@
     "type": "",
     "url": ""
   },
-  "jest": {
-    "projects": [
-      "<rootDir>/test/server",
-      "<rootDir>/test/client"
-    ]
-  },
   "license": "UNLICENSED",
   "description": "{{ description }}"{{#extended}},
   "extended": true
