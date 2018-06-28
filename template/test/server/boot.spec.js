@@ -55,7 +55,7 @@ describe('boot process', () => {
         text: 'Testing email text',
         html: '<b>Testing email text</b>',
       }, done);
-    }).slow(5000).timeout(30000);
+    }, 30000);
   });
 
   describe('create-admin.js', () => {
