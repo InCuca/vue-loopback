@@ -10,7 +10,7 @@
     "dev": "gulp serve",
     "build": "gulp build --production && npm run afterbuild",
     "afterbuild": "cd build && npm install --production",
-    "test": "npx jest --runInBand test/server/**.spec.js && npx jest test/client/**.spec.js",
+    "test": "npx jest",
     "start": "node ./index.js"
   },
   "dependencies": {
