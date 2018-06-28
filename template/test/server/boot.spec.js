@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
-import createLoopback from './utils/create-loopback';
 import request from 'supertest';
+import createLoopback from './utils/create-loopback';
 {{#extended}}
 import initialAccount from '../../server/initial-data/maintenance-account.json';
 {{/extended}}

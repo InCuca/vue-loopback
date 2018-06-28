@@ -37,6 +37,7 @@
     "expect": true,
     "assert": true,
     "require": true,
-    "request": true
+    "request": true,
+    "jest": true
   }
 }

@@ -1,6 +1,6 @@
-import createLoopback from './create-loopback';
 import loopback from 'loopback';
 import boot from 'loopback-boot';
+import createLoopback from './create-loopback';
 
 jest.mock('loopback');
 jest.mock('loopback-boot');
@@ -17,7 +17,7 @@ describe('createLoopback dev util', () => {
       scriptExtensions: expect.any(Array),
     };
     loopback.mockReturnValue(mockServer);
-    createLoopback()
+    createLoopback();
     expect(boot).toBeCalledWith(
       mockServer,
       expect.objectContaining(optsMatcher),
@@ -29,7 +29,7 @@ describe('createLoopback dev util', () => {
     const mockServer = {};
     const myOpts = {myOpt: true};
     loopback.mockReturnValue(mockServer);
-    createLoopback(myOpts)
+    createLoopback(myOpts);
     expect(boot).toBeCalledWith(
       mockServer,
       expect.objectContaining(myOpts),
@@ -37,7 +37,7 @@ describe('createLoopback dev util', () => {
     );
   });
 
-  it('resolves with loopback server', async () => {
+  it('resolves with loopback server', async() => {
     const mockServer = {};
     loopback.mockReturnValue(mockServer);
     // just call callback fn
@@ -45,4 +45,4 @@ describe('createLoopback dev util', () => {
     const server = await createLoopback();
     expect(server).toEqual(mockServer);
   });
-})
+});
