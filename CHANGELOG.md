@@ -1,3 +1,39 @@
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/InCuca/vue-loopback/compare/v4.2.0...v5.0.0) (2018-06-28)
+
+
+### Bug Fixes
+
+* **babel:** add stage2 support ([c95f47c](https://github.com/InCuca/vue-loopback/commit/c95f47c))
+* **gulp-tasks:** add exit in mocha to close mocha when test pass ([0963212](https://github.com/InCuca/vue-loopback/commit/0963212))
+* **gulp-tasks:** fix backslashs in win fixes [#8](https://github.com/InCuca/vue-loopback/issues/8) ([b721305](https://github.com/InCuca/vue-loopback/commit/b721305))
+* **jest:** fix jest plugins path ([6632ad6](https://github.com/InCuca/vue-loopback/commit/6632ad6))
+* **lint:** fix eslint errors ([dc2a6c7](https://github.com/InCuca/vue-loopback/commit/dc2a6c7))
+* **loopback:** pass previous uid to loading fn ([39093da](https://github.com/InCuca/vue-loopback/commit/39093da))
+* **loopback-boot:** add support for es6 modules in boot scripts ([2d813fe](https://github.com/InCuca/vue-loopback/commit/2d813fe)), closes [strongloop/loopback-boot#280](https://github.com/strongloop/loopback-boot/issues/280)
+* **package:** run server tests in band ([4d45501](https://github.com/InCuca/vue-loopback/commit/4d45501))
+* **package:** update loopback-boot to 3.1 to fix boot ([200b615](https://github.com/InCuca/vue-loopback/commit/200b615))
+* **server:** add option for compatibility with jest ([fbb68b2](https://github.com/InCuca/vue-loopback/commit/fbb68b2))
+* **tasks:** remove tests tasks ([e889a3c](https://github.com/InCuca/vue-loopback/commit/e889a3c))
+* **tests:** remove client and server separation ([cd4ac8c](https://github.com/InCuca/vue-loopback/commit/cd4ac8c))
+
+
+### Features
+
+* **babel:** add node 8 add regenerator ([94cd1a4](https://github.com/InCuca/vue-loopback/commit/94cd1a4))
+* **jest:** add jest config file ([044a3eb](https://github.com/InCuca/vue-loopback/commit/044a3eb))
+* **jest:** add jest plugins config ([3021667](https://github.com/InCuca/vue-loopback/commit/3021667))
+* **jest:** add jest-preset-loopback ([575873c](https://github.com/InCuca/vue-loopback/commit/575873c))
+* **Login:** add sessionError with authorization error redirection ([a05a9eb](https://github.com/InCuca/vue-loopback/commit/a05a9eb))
+* **loopback:** add DateString type support ([5ba568d](https://github.com/InCuca/vue-loopback/commit/5ba568d))
+* **package:** add babel-jest ([29533ac](https://github.com/InCuca/vue-loopback/commit/29533ac))
+* **package:** add jest dependency ([1b82ba3](https://github.com/InCuca/vue-loopback/commit/1b82ba3))
+* **package:** add loopback-jest ([2bc6cc8](https://github.com/InCuca/vue-loopback/commit/2bc6cc8))
+* **package:** add vue-jest ([33c6d57](https://github.com/InCuca/vue-loopback/commit/33c6d57))
+* **package:** run afterbuild after build, fixes [#9](https://github.com/InCuca/vue-loopback/issues/9) ([77c6fcf](https://github.com/InCuca/vue-loopback/commit/77c6fcf))
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://github.com/InCuca/vue-loopback/compare/v4.1.1...v4.2.0) (2018-05-17)
 
