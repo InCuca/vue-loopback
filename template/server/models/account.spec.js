@@ -5,7 +5,7 @@ describe('Account', () => {
   const email = '936ue5+4bnywbeje42pw@sharklasers.com';
   let server, testAccount, Account;
 
-  beforeEach(asyn () => {
+  beforeEach(async() => {
     server = await createLoopback();
     Account = server.models.Account;
     testAccount = await Account.create({
