@@ -1,31 +1,31 @@
-import app from '../../server/server';
+import request from 'supertest';
+import createLoopback from './utils/create-loopback';
 
 describe('Account', () => {
-  const Account = app.models.Account;
   const email = '936ue5+4bnywbeje42pw@sharklasers.com';
+  let server;
   let testAccount;
+  let Account;
 
-  beforeEach(() => {
-    const appStarted = new Promise(res => app.addListener('started', res));
-    app.start();
-    return appStarted.then(() => Account
-      .create({email, password: 'IuhEW7HI#&HUH3'})
-      .then((acc) => {
-        testAccount = acc;
-      }));
+  beforeEach(async () => {
+    server = await createLoopback();
+    Account = server.models.Account;
+    testAccount = await Account.create({
+      email,
+      password: 'IuhEW7HI#&HUH3'
+    });
   });
 
-  afterEach(() => {
-    Account.destroyById(testAccount.id);
-    app.close();
-  });
+  afterEach(() => Account.destroyById(testAccount.id));
 
   it('has been correctly declared', () => {
-    expect(Account).toInherits(app.models.User);
+    expect(Account).toInherits(server.models.User);
   });
 
-  it('should send reset email to test user', () => request(app)
+  it('should send reset email to test user', () => request(server)
     .post('/api/Accounts/reset')
-    .send({email})
-    .then(res => expect(res).to.status(204))).slow(5000).timeout(30000);
+    .send({ email })
+    .expect(204),
+    30000,
+  );
 });
