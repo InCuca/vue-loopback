@@ -33,6 +33,14 @@
   $ npm run dev
 ```
 
+## Debug
+
+```
+$ DEBUG=loopback npm run dev
+```
+
+[More info...](https://loopback.io/doc/en/lb3/Setting-debug-strings.html)
+
 ## Build to ./build
 
 ```

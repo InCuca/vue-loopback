@@ -1,3 +1,4 @@
+import request from 'supertest';
 import server from '../../index';
 
 describe('Project Index', () => {
@@ -8,11 +9,8 @@ describe('Project Index', () => {
 
   afterEach(() => server.close());
 
-  it('should serve client files', (done) => {
-    request(server).get('/index.html').end((err, res) => {
-      expect(err).to.be.equal(null);
-      expect(res).to.have.status(200);
-      done();
-    });
+  it('should serve client files', async() => {
+    const res = await request(server).get('/index.html');
+    expect(res.statusCode).toBe(200);
   });
 });

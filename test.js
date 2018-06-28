@@ -15,15 +15,13 @@ const commands = [
   {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], responses: initQuestions},
   {cmd: 'npm', args: ['install'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'lint'], cwd: 'test-project'},
-  {cmd: 'npm', args: ['run', 'test:server'], cwd: 'test-project'},
-  {cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project'},
+  {cmd: 'npm', args: ['run', 'test'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'build'], cwd: 'test-project'},
   {cmd: 'rm', args: ['-r', 'test-project'], ignoreErrors: true},
   {cmd: './node_modules/.bin/vue', args: ['init', '.', 'test-project'], responses: initNoExtQuestions},
   {cmd: 'npm', args: ['install'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'lint'], cwd: 'test-project'},
-  {cmd: 'npm', args: ['run', 'test:server'], cwd: 'test-project'},
-  {cmd: 'npm', args: ['run', 'test:client'], cwd: 'test-project'},
+  {cmd: 'npm', args: ['run', 'test'], cwd: 'test-project'},
   {cmd: 'npm', args: ['run', 'build'], cwd: 'test-project'},
 ];
 /* eslint-enable max-len */

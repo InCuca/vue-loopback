@@ -1,7 +1,7 @@
 # vue-loopback
 [![Travis](https://img.shields.io/travis/InCuca/vue-loopback/master.svg)](https://travis-ci.org/InCuca/vue-loopback/branches)
 
-A Vue project template with [Loopback](http://loopback.io/) framework featuring ES6, Gulp, and Mocha for unit tests
+A Vue project template with [Loopback](http://loopback.io/) framework featuring ES6, Gulp, and Jest for unit tests
 
 > This template is for Vue 2.x **only** with [vue-cli](https://github.com/vuejs/vue-cli).
 
@@ -44,6 +44,14 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
   $ npm run dev
 ```
 
+## Debug
+
+```
+$ DEBUG=loopback npm run dev
+```
+
+[More info...](https://loopback.io/doc/en/lb3/Setting-debug-strings.html)
+
 ## Build to ./build
 
 ```
@@ -55,11 +63,4 @@ A Vue project template with [Loopback](http://loopback.io/) framework featuring 
 ```bash
   $ cd build
   $ npm run start
-```
-
-You can run only the server with:
-
-```bash
-  $ cd build/server
-  $ node .
 ```
