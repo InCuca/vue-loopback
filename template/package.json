@@ -61,6 +61,7 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-config-loopback": "^8.0.0",
     "eslint-plugin-vue": "^4.0.0",
+    "eslint-plugin-jest": "^21.17.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",

@@ -4,7 +4,8 @@
     "parser": "babel-eslint"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "extends": [
     "plugin:vue/recommended",
@@ -12,7 +13,8 @@
     "loopback"
   ],
   "plugins": [
-    "vue"
+    "vue",
+    "jest"
   ],
   "rules": {
     "import/no-unresolved": "off",
@@ -35,10 +37,6 @@
     "one-var-declaration-per-line": "off"
   },
   "globals": {
-    "expect": true,
-    "assert": true,
-    "require": true,
-    "request": true,
-    "jest": true
+    "require": true
   }
 }
