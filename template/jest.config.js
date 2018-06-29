@@ -1,7 +1,10 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{js,vue}',
+    'client/**/*.{js,vue}',
+    'server/**/*.js',
+    'common/**/*.js',
+    'test/**/*.js',
     '!**/*.spec.js',
     '!**/node_modules/**',
   ],
