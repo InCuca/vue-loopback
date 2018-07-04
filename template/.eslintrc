@@ -24,6 +24,8 @@
         "devDependencies": [
           "**/*.spec.js",
           "__tests__/*.js",
+          "__mocks__/*.js",
+          "__snapshots__/*.js",
           "test/**/*.js",
           "gulp-tasks/**/*.js",
           "jest.config.js",
