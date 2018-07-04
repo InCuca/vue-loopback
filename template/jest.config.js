@@ -41,6 +41,9 @@ module.exports = {
         '^.+\\.js$': 'babel-jest',
         '^.+\\.vue$': 'vue-jest',
       },
+      moduleNameMapper: {
+        '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',
+      },
     },
     {
       displayName: 'common',
