@@ -2,7 +2,7 @@
 import request from 'supertest';
 import createLoopback from '~/test/utils/create-loopback';
 {{#extended}}
-import initialAccount from '../initial-data/maintenance-account.json';
+import initialAccount from '~/server/initial-data/maintenance-account.json';
 {{/extended}}
 
 describe('boot process', () => {
