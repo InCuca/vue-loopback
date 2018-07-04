@@ -37,6 +37,9 @@ module.exports = {
         'json',
         'vue',
       ],
+      moduleNameMapper: {
+        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+      },
       transform: {
         '^.+\\.js$': 'babel-jest',
         '^.+\\.vue$': 'vue-jest',

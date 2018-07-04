@@ -67,6 +67,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-connect": "^5.0.0",
     "gulp-sourcemaps": "^2.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-plugins": "^2.9.0",
     "jest-preset-loopback": "^1.0.0",
