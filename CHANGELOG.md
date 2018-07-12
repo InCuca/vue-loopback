@@ -1,3 +1,19 @@
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/InCuca/vue-loopback/compare/v5.1.0...v5.2.0) (2018-07-12)
+
+
+### Bug Fixes
+
+* **lint:** add jest support ([bc62f54](https://github.com/InCuca/vue-loopback/commit/bc62f54))
+* **template:** filter only testable directories ([9664336](https://github.com/InCuca/vue-loopback/commit/9664336))
+
+
+### Features
+
+* **eslint:** add more test folders ([82f4654](https://github.com/InCuca/vue-loopback/commit/82f4654))
+
+
+
 <a name="5.1.0"></a>
 # [5.1.0](https://github.com/InCuca/vue-loopback/compare/v5.0.0...v5.1.0) (2018-06-28)
 
