@@ -1,3 +1,13 @@
+<a name="5.2.1"></a>
+## [5.2.1](https://github.com/InCuca/vue-loopback/compare/v5.2.0...v5.2.1) (2018-07-12)
+
+
+### Features
+
+* **template:** fix deploy and add settings ([37fef59](https://github.com/InCuca/vue-loopback/commit/37fef59))
+
+
+
 <a name="5.2.0"></a>
 # [5.2.0](https://github.com/InCuca/vue-loopback/compare/v5.1.0...v5.2.0) (2018-07-12)
 
