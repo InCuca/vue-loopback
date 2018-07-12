@@ -52,7 +52,7 @@ describe('server', () => {
 
   it('calls express listen when start is called', () => {
     const listen = jest.fn();
-    loopback.mockReturnValue({ listen });
+    loopback.mockReturnValue({listen});
     getApp().start();
     expect(listen).toBeCalledWith(expect.any(Function));
   });
@@ -61,7 +61,7 @@ describe('server', () => {
     const get = jest.fn(() => 'foo');
     const listen = jest.fn(cb => cb());
     const emit = jest.fn();
-    loopback.mockReturnValue({ listen, get, emit });
+    loopback.mockReturnValue({listen, get, emit});
     getApp().start();
     expect(emit).toBeCalledWith('started');
   });
@@ -71,7 +71,7 @@ describe('server', () => {
     const listen = jest.fn(cb => cb());
     const emit = jest.fn();
     console.log = jest.fn();
-    loopback.mockReturnValue({ listen, get, emit });
+    loopback.mockReturnValue({listen, get, emit});
     getApp().start();
     expect(console.log).toBeCalledWith(
       expect.any(String),
@@ -80,11 +80,13 @@ describe('server', () => {
   });
 
   it('log explorer url when start is called', () => {
-    const get = jest.fn(term => (term === 'url' ? 'url' : { mountPath: 'foo' }));
+    const get = jest.fn(
+      term => (term === 'url' ? 'url' : {mountPath: 'foo'})
+    );
     const listen = jest.fn(cb => cb());
     const emit = jest.fn();
     console.log = jest.fn();
-    loopback.mockReturnValue({ listen, get, emit });
+    loopback.mockReturnValue({listen, get, emit});
     getApp().start();
     expect(console.log).toBeCalledWith(
       expect.any(String),
@@ -95,8 +97,8 @@ describe('server', () => {
 
   it('close server when close is called', () => {
     const close = jest.fn();
-    const listen = jest.fn(() => ({ close }));
-    loopback.mockReturnValue({ listen });
+    const listen = jest.fn(() => ({close}));
+    loopback.mockReturnValue({listen});
     getApp().start();
     getApp().close();
     expect(close).toBeCalled();
