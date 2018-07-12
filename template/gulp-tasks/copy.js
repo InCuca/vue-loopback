@@ -3,7 +3,8 @@ import gulp from 'gulp';
 import path from 'path';
 import fs from 'fs';
 import {argv} from 'yargs';
-import {dirs, prod} from './config';
+import {dirs} from './config';
+import production from '../server/config.production.json';
 
 gulp.task('copy:client:fa', () => {
   return gulp
@@ -41,7 +42,7 @@ gulp.task('copy:config:server', ['copy:server'], (done) => {
         path.resolve(dirs.buildServer, 'config.json'),
         JSON.stringify({
           ...JSON.parse(data),
-          ...prod,
+          ...production,
         }),
         done
       );

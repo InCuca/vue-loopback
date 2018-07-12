@@ -19,9 +19,3 @@ dirs.testServer = path.resolve(dirs.test, 'server');
 dirs.srcClient = path.resolve(dirs.root, 'client');
 dirs.srcCommon = path.resolve(dirs.root, 'common');
 dirs.srcServer = path.resolve(dirs.root, 'server');
-
-// Set here production build settings
-export const prod = {
-  host: '0.0.0.0',
-  port: 80,
-};

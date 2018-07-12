@@ -11,7 +11,7 @@
     "build": "gulp build --production && npm run afterbuild",
     "afterbuild": "cd build && npm install --production",
     "test": "npx jest",
-    "start": "node ./index.js"
+    "start": "NODE_ENV=production node ."
   },
   "dependencies": {
     "compression": "^1.0.3",

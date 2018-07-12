@@ -49,6 +49,8 @@ $ DEBUG=loopback npm run dev
 
 ## Executing built files
 
+Please remember to update `server/*.production.json` files to match your enviroment.
+
 ```bash
   $ cd build
   $ npm run start

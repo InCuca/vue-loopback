@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {host, restApiRoot, port} from '~/server/config.json';
+import {restApiHost, restApiRoot, port} from '~/server/config.json';
 import {DateString} from 'loopback';
 
 DateString.parse = function(dateString) {
@@ -35,7 +35,7 @@ function addTokenFromLocalStorage(http) {
 }
 
 const http = axios.create({
-  baseURL: `http://${host}:${port}${restApiRoot}`,
+  baseURL: `http://${restApiHost}:${port}${restApiRoot}`,
 });
 
 // Current setLoading function
