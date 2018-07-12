@@ -1,5 +1,7 @@
 const {spawn} = require('child_process');
 
+process.setMaxListeners(20); // increase listeners limit
+
 const initQuestions = [
   {search: /^\?.+/, response: '\n'},
 ];
