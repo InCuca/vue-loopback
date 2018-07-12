@@ -39,8 +39,12 @@ describe('Account unit', () => {
     expect(AccountMock.app.models.Email.send).toBeCalledWith(
       expect.objectContaining({
         to: infoMock.email,
-        from: 'alpp <noreply@mydomain.com>',
-        subject: '[alpp] Create a new password',
+        from: expect.stringContaining(
+          'noreply@mydomain.com'
+        ),
+        subject: expect.stringContaining(
+          'Create a new password'
+        ),
         html: expect.stringMatching(
           new RegExp(`${host}.*${infoMock.accessToken.id}`)
         ),

@@ -12,5 +12,5 @@ describe('Project Index', () => {
   it('should serve client files', async() => {
     const res = await request(server).get('/index.html');
     expect(res.statusCode).toBe(200);
-  });
+  }, 10000);
 });
