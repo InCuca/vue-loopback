@@ -32,6 +32,7 @@ module.exports = {
     'client/view/**/*': 'extended',
     'server/boot/add-initial-data.js': 'extended',
     'server/boot/create-admin.js': 'extended',
+    'server/boot/__tests__/create-admin.spec.js': 'extended',
     'server/initial-data/**/*': 'extended',
     'server/models/**/*': 'extended',
     'test/client/components/**/*': 'extended',
