@@ -3,6 +3,8 @@
   "restApiHost": "localhost",
   "host": "0.0.0.0",
   "port": 8000,
+  "emailFrom": "noreply@mydomain.com",
+  "clientURI": "http://localhost",
   "remoting": {
     "context": false,
     "rest": {
