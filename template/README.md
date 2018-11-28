@@ -15,6 +15,8 @@
   $ npm install
 ```
 
+** Compatible with node 8, 9 and 10 **
+
 ## Linting
 
 ```
